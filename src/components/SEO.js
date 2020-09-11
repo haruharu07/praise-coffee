@@ -50,6 +50,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
+              {
+                name: `robots`,
+                content: `noindex`,
+              },
             ]
               .concat(
                 keywords.length > 0
@@ -60,18 +64,18 @@ function SEO({ description, lang, meta, keywords, title }) {
                   : []
               )
               .concat(meta)}
-              link={[
-                    {
-                        href: `https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap`,
-                        rel: `stylesheet`,
-                    },
-                    {
-                        href: `https://use.fontawesome.com/releases/v5.13.0/css/all.css`,
-                        integrity: `sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V`,
-                        crossorigin: `anonymous`,
-                        rel: `stylesheet`,
-                    },
-              ]}
+            link={[
+              {
+                href: `https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap`,
+                rel: `stylesheet`,
+              },
+              {
+                href: `https://use.fontawesome.com/releases/v5.13.0/css/all.css`,
+                integrity: `sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V`,
+                crossorigin: `anonymous`,
+                rel: `stylesheet`,
+              },
+            ]}
           />
         )
       }}
