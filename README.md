@@ -1,1 +1,1 @@
-### Praise Coffeeです。
+### Praise Coffeeです。よろしくお願いします。
