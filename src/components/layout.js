@@ -1,51 +1,69 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react'
+import styled, { ThemeProvider } from "styled-components"
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import GlobalStyle from '@styles/global'
+import theme from '@styles/theme'
+import responsive from '@styles/responsive'
 
-import Header from "./header"
-import "./layout.css"
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import Contact from '@components/Contact'
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
+
+const Layout = props => {
+    const { location, children } = props
+    const rootPath = `${__PATH_PREFIX__}/`
+
+    let content;
+    if(location.pathname === rootPath) {
+        content = <ContentHome><main>{children}</main></ContentHome>
+    } else {
+        content = <ContentPage><main>{children}</main></ContentPage>
     }
-  `)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
+    let contact;
+    if(location.pathname === "/contact") {
+        contact = ""
+    } else {
+        contact =
+        <Contact />
+    }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+    return (
+        <ThemeProvider theme={theme}>
+        <>
+        <GlobalStyle />
+        <Header location={location} />
+        {content}
+        {contact}
+        <Footer />
+        </>
+        </ThemeProvider>
+    )
 }
 
 export default Layout
+
+const ContentHome = styled.div`
+    min-height: 120vh;
+    padding: 0 0 12rem;
+    .section {
+        margin-bottom: 10rem;
+    }
+    ${responsive.md} {
+        padding: 0 0 8rem;
+        .section {
+            margin-bottom: 6rem;
+        }
+    }
+`
+const ContentPage = styled.div`
+    min-height: 120vh;
+    padding: 20rem 0 16rem;
+    ${responsive.md} {
+        padding: 15rem 0 10rem;
+    }
+    ${responsive.sm} {
+        padding: 12rem 0 10rem;
+    }
+`

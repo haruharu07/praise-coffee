@@ -1,42 +1,88 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import responsive from "@styles/responsive"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
+import NavigationHeader from '@components/Navigation/Navigation.Header'
+import Container from '@components/Container'
+
+import SiteLogo from '@images/logo.png'
+
+const Header = ({location}) => {
+
+    const rootPath = `${__PATH_PREFIX__}/`
+    const logoLink = (
+        <Link to="/">
+            <img src={SiteLogo} alt="Praise Coffee"/>
         </Link>
-      </h1>
-    </div>
-  </header>
-)
+    )
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+    let logo;
+    if (location.pathname === rootPath) {
+        logo = <LogoTop>{logoLink}</LogoTop>
+    } else {
+        logo = <LogoPage>{logoLink}</LogoPage>
+    }
 
-Header.defaultProps = {
-  siteTitle: ``,
+    return (
+        <GlobalHeader>
+            <Container>
+                <HeaderInner>
+                    {logo}
+                    <NavigationHeader location={location} />
+                </HeaderInner>
+            </Container>
+        </GlobalHeader>
+    )
 }
 
 export default Header
+
+const GlobalHeader = styled.header`
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+`
+
+const HeaderInner = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem 0 0;
+    position: relative;
+    ${responsive.md} {
+        padding: 2rem 0 0;
+    }
+`
+
+const LogoTop = styled.h1`
+    width: 100px;
+    a {
+        display: block;
+    }
+    ${responsive.md} {
+        width: 82px;
+        position: relative;
+        z-index: 100;
+    }
+    ${responsive.sm} {
+        width: 64px;
+    }
+`
+
+const LogoPage = styled.p`
+    width: 100px;
+    a {
+        display: block;
+    }
+    ${responsive.md} {
+        width: 82px;
+        position: relative;
+        z-index: 100;
+    }
+    ${responsive.sm} {
+        width: 64px;
+    }
+`

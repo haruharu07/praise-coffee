@@ -1,7 +1,55 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require(`path`)
 
-// You can delete this file if you're not using it
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions
+
+    return graphql(
+    `
+        {
+            allContentfulMenu {
+                edges {
+                    node {
+                        title
+                        slug
+                    }
+                }
+            }
+        }
+    `
+    ).then(result => {
+    if (result.errors) {
+        throw result.errors
+    }
+
+    // Create bean pages.
+    const posts = result.data.allContentfulMenu.edges
+
+    posts.forEach((post) => {
+
+        createPage({
+        path: `beans/${post.node.slug}`,
+        component: path.resolve(`./src/templates/bean.js`),
+        context: {
+                slug: post.node.slug,
+            },
+        })
+    })
+
+    // Create bean list pages
+    const postsPerPage = 20;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+            path: i === 0 ? `/beans` : `/beans/${i + 1}`,
+            component: path.resolve('./src/templates/bean-list.js'),
+            context: {
+                    limit: postsPerPage,
+                    skip: i * postsPerPage,
+                    numPages,
+                    currentPage: i + 1
+                },
+            });
+        });
+    })
+}
