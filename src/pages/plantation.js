@@ -2,6 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+import responsive from "@styles/responsive"
+
 import Layout from '@components/Layout'
 import SEO from '@components/SEO'
 import Container from '@components/Container'
@@ -61,12 +63,25 @@ const Block = styled.div`
         grid-column: 2 / 3;
         grid-row: 1;
     }
+    ${responsive.md} {
+        display: block;
+    }
+    ${responsive.sm} {
+        &:not(:last-child) {
+            margin-bottom: 5rem;
+        }
+    }
 `
 
 const ItemImage = styled.div`
     height: 300px;
     background-color: #F7F0EA;
-    /* box-shadow: rgba(0,0,0,0.08) 0px 30px 60px -10px, rgba(0,0,0,0.1) 0px 18px 36px -18px; */
+    ${responsive.md} {
+        height: 400px;
+    }
+    ${responsive.sm} {
+        height: 212px;
+    }
 `
 
 const TextBox = styled.div`
@@ -77,6 +92,10 @@ const ItemTitle = styled.h2`
     font-size: 2.4rem;
     font-weight: 400;
     margin-bottom: 2rem;
+    ${responsive.md} {
+        font-size: 2.0rem;
+        margin-bottom: 1rem;
+    }
 `
 
 const ItemText = styled.p``

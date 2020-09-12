@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "gatsby"
-import responsive from "@styles/responsive"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import responsive from '@styles/responsive'
 
 import Container from '@components/Container'
 import Image from "@components/Image"
@@ -96,6 +96,7 @@ const ItemTitle = styled.h2`
     margin-bottom: 2rem;
     ${responsive.sm} {
         font-size: 2.2rem;
+        margin-bottom: 1rem;
     }
 `
 

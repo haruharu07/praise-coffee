@@ -8,7 +8,7 @@ import Hero from '@components/Home/Hero'
 import Sustainability from "@components/Home/Sustainability"
 import Favorite from '@components/Home/Favorite'
 import About from '@components/Home/About'
-import Community from '@components/Home/Community'
+import Work from '@components/Home/Work'
 import Gallery from '@components/Home/Gallery'
 
 const IndexPage = ({ location, data }) => {
@@ -22,7 +22,7 @@ const IndexPage = ({ location, data }) => {
             <Sustainability />
             <About />
             <Favorite posts={posts} />
-            <Community />
+            <Work />
             <Gallery />
         </Layout>
     )
