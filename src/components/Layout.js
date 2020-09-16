@@ -9,8 +9,6 @@ import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Contact from '@components/Contact'
 
-import {css} from '../styles/fonts.css'
-
 
 const Layout = props => {
     const { location, children } = props
