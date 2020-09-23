@@ -26,11 +26,11 @@ const Contact = ({ location }) => {
                             </Block>
                             <Block>
                                 <label>メールアドレス</label>
-                                <input type="email" placeholder="YourAdress@mail.com" name="name"/>
+                                <input type="email" placeholder="YourAdress@mail.com" name="email"/>
                             </Block>
                             <Block>
                                 <label>お問い合わせ内容</label>
-                                <textarea />
+                                <textarea name="message" />
                             </Block>
                             <Block>
                                 <input type="submit" value="送信" />
