@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import responsive from "@styles/responsive"
 
 import Layout from '@components/Layout'
 import SEO from '@components/SEO'
@@ -53,12 +54,22 @@ const Item = styled.dl`
     &:last-child {
         margin-bottom: 0;
     }
+    ${responsive.md} {
+        margin-bottom: 3rem;
+    }
+    ${responsive.sm} {
+        margin-bottom: 2.2rem;
+    }
 `
 
 const ItemTitle = styled.dt`
     font-size: 2.4rem;
     color: #111;
     margin-bottom: 2rem;
+    ${responsive.md} {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
 `
 
 const ItemText = styled.dd``

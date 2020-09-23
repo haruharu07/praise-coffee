@@ -96,7 +96,7 @@ const SmallNavItem = styled.li`
         height: 14px;
         background-color: #e5e5e5;
         position: absolute;
-        top: 2px;
+        top: 3px;
         right: -10px;
         ${responsive.md} {
             display: none;

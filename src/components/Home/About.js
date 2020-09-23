@@ -105,16 +105,23 @@ const ItemGrid = styled.div`
         transition: all .5s;
     }
     ${responsive.md} {
-        grid-template-columns: 1fr;
-        row-gap: 1.5rem;
-        padding: 3rem 1.5rem 4rem;
+        grid-template-columns: 15% 85%;
+        column-gap: 2rem;
+        padding: 3rem 0 4rem;
+    }
+    ${responsive.sm} {
+        display: block;
+        padding: 2rem 0 3rem;
     }
 `
 
 const ItemLogo = styled.p`
     width: 132px;
     ${responsive.md} {
-        display: none;
+        width: auto;
+    }
+    ${responsive.sm} {
+        display :none;
     }
 `
 

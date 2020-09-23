@@ -28,13 +28,17 @@ const globalStyle = createGlobalStyle`
         font-size : 62.5%;
     }
     body {
-        font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','ヒラギノ角ゴシック','Hiragino Sans','MS UI Gothic','Yu Gothic UI','Meiryo UI','メイリオ', 'Meiryo','Helvetica Neue','Helvetica',sans-serif;
+        font-family: '秀英丸ゴシック L', 'Shuei MaruGo L', -apple-system, BlinkMacSystemFont,'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial,'Helvetica Neue','メイリオ', 'Meiryo',sans-serif;
         font-size: 1.6rem;
         line-height: 1.75;
         background-color: ${props => props.theme.colors.background};
         color: ${props => props.theme.colors.base};
         position: relative;
         overflow: scroll;
+        visibility: hidden;
+    }
+    body.typesquare_option {
+    visibility: visible;
     }
     article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
@@ -88,59 +92,6 @@ const globalStyle = createGlobalStyle`
             outline: none;
         }
     }
-
-    /*react-slick*/
-    .slick-arrow {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        top: -6.8rem;
-        &::before {
-            display: none;
-        }
-        @media screen and (max-width: 1040px) {
-            display: none!important;
-        }
-    }
-    .slick-next {
-        left: calc(50% + 44.8rem);
-    }
-    .slick-prev {
-        left: calc(50% + 36.6rem);
-    }
-
-    /*menu-btn*/
-    .menu-button.open {
-        transform: rotate(135deg);
-        transition: transform 220ms cubic-bezier(0.215, 0.61, 0.355, 1) 120ms;
-    }
-    .menu-button.open::before {
-        top: calc(50% - 1px);
-        transition: all 0.2s;
-    }
-    .menu-button.open::after {
-        bottom: calc(50% - 1px);
-        transform: rotate(-90deg);
-        transition: all 0.2s;
-    }
-
-    /*menu-nav*/
-    .mobile-nav.show {
-        visibility: visible;
-        opacity: 1;
-        transition: all 0.5s;
-    }
-    .mobile-nav.show a {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-    body.noscroll {
-        overflow: hidden;
-    }
-
 `
 
 export default globalStyle

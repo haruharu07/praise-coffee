@@ -20,8 +20,8 @@ const IndexPage = ({ location, data }) => {
             <SEO title="美味しいコーヒーと共に" />
             <Hero />
             <Sustainability />
-            <About />
             <Favorite posts={posts} />
+            <About />
             <Work />
             <Gallery />
         </Layout>

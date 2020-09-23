@@ -9,6 +9,7 @@ import SEO from '@components/SEO'
 import Container from '@components/Container'
 import Headings from '@components/Headings'
 import Image from '@components/Image'
+import Sustainability from "@components/Home/Sustainability"
 
 const block = [
     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", title: "美味しいコーヒーと共に人生に豊かな時間を。", text: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。" },
@@ -42,6 +43,7 @@ const Story = ({ location }) => {
                     </BlockWrapper>
                 </Container>
             </Section>
+            <Sustainability />
         </Layout>
     )
 }

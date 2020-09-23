@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import responsive from "@styles/responsive"
+
+import responsive from '@styles/responsive'
+import navigationStyle from "@styles/navigation"
 
 import NavigationHeader from '@components/Navigation/Navigation.Header'
 import Container from '@components/Container'
@@ -44,6 +46,7 @@ const GlobalHeader = styled.header`
     left: 0;
     z-index: 100;
     width: 100%;
+    ${navigationStyle}
 `
 
 const HeaderInner = styled.div`
