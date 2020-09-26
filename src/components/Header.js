@@ -21,10 +21,11 @@ const Header = ({location}) => {
 
     let logo;
     if (location.pathname === rootPath) {
-        logo = <LogoTop>{logoLink}</LogoTop>
+        logo = <LogoTop className="logo">{logoLink}</LogoTop>
     } else {
-        logo = <LogoPage>{logoLink}</LogoPage>
+        logo = <LogoPage className="logo">{logoLink}</LogoPage>
     }
+
 
     return (
         <GlobalHeader>
@@ -68,7 +69,6 @@ const LogoTop = styled.h1`
     ${responsive.lg} {
         width: 82px;
         position: relative;
-        z-index: 100;
     }
     ${responsive.sm} {
         width: 64px;
@@ -83,7 +83,6 @@ const LogoPage = styled.p`
     ${responsive.lg} {
         width: 82px;
         position: relative;
-        z-index: 100;
     }
     ${responsive.sm} {
         width: 64px;

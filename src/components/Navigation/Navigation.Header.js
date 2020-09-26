@@ -28,8 +28,7 @@ const NavigationHeader = ({ location }) => {
 
     const path = location.pathname
 
-    function activate(e) {
-        e.preventDefault()
+    function activate() {
         document.querySelector(".menu-button").classList.toggle("open")
         document.querySelector(".mobile-nav").classList.toggle("show")
         document.body.classList.toggle("noscroll")
@@ -55,6 +54,7 @@ const NavigationHeader = ({ location }) => {
                 <MobileNavItem navName="カフェのメニュー" navLink="/menu" path={path} />
                 <MobileNavItem navName="農園について" navLink="/plantation" path={path} />
                 <MobileNavItem navName="お店について" navLink="/shop-info" path={path} />
+                <MobileNavItem navName="TOPへもどる" navLink="/" path={path} />
             </MobileNavList>
         </MobileNav>
         </>
@@ -138,7 +138,7 @@ const MobileNav = styled.nav`
     width: 100%;
     height: 100%;
     background-color: ${props => props.theme.colors.background};
-    padding-top: 98.3px;
+    padding-top: 8rem;
 `
 
 const MobileNavList = styled.ul`
@@ -148,10 +148,19 @@ const MobileNavList = styled.ul`
 `
 
 const MobileNavLink = styled.li`
-    border-top: 1px solid rgba(0,0,0,0.25);
     color: rgba(0,0,0,0.5);
-    &:last-child {
-        border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    &:last-child::before {
+        display: block;
+        content: "";
+        width: 220px;
+        height: 1px;
+        background-color:rgba(0,0,0,0.25);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
     a {
         display: flex;
@@ -163,5 +172,18 @@ const MobileNavLink = styled.li`
     }
     a:hover {
         color: #111;
+    }
+    ${responsive.lg} {
+        a {
+            font-size: 2.4rem;
+        }
+    }
+    ${responsive.sm} {
+        &:last-child::before {
+            width: 160px;
+        }
+        a {
+            font-size: 1.6rem;
+        }
     }
 `
