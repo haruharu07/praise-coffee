@@ -39,12 +39,17 @@ const ItemGrid = styled.div`
         }
         &:hover .item-headline {
             transition: .4s;
-            color: ${(props) => props.theme.colors.highlight};
+            color: ${props => props.theme.colors.highlight};
         }
     }
     ${responsive.lg} {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 2.5rem;
+        .item-link {
+            &:hover .item-headline {
+                color: ${props => props.theme.colors.base};
+            }
+        }
     }
     ${responsive.sm} {
         grid-template-columns: 1fr 1fr;

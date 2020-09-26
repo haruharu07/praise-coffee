@@ -41,7 +41,6 @@ const ItemText = styled.h3`
     font-size: 1.6rem;
     font-weight: 400;
     text-align: center;
-    transition: .4s;
     ${responsive.sm} {
         font-size: 1.2rem;
     }

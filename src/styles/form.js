@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import responsive from "@styles/responsive"
 
 const formStyle = css`
     label {
@@ -23,6 +24,11 @@ const formStyle = css`
         cursor: pointer;
         &:hover {
             opacity: .9;
+        }
+    }
+    ${responsive.sm} {
+        .contactForm-input {
+            padding: 1.2rem 1.8rem;
         }
     }
 `

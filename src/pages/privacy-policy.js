@@ -58,7 +58,7 @@ const Item = styled.dl`
         margin-bottom: 3rem;
     }
     ${responsive.sm} {
-        margin-bottom: 2.2rem;
+        margin-bottom: 2.8rem;
     }
 `
 
