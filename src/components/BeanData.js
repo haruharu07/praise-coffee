@@ -41,7 +41,7 @@ const MenuBody = styled.div`
     border: 1px solid #555;
     padding: 3rem;
     margin-bottom: 4rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
         padding: 2rem;
         margin-bottom: 3rem;
@@ -62,7 +62,7 @@ const MenuGroup = styled.div`
         position: absolute;
         top: 0;
         right: -3rem;
-        ${responsive.md} {
+        ${responsive.lg} {
             display: none;
         }
     }
@@ -76,7 +76,7 @@ const MenuGroup = styled.div`
         .menu-section-sm:nth-child(1) {
             border-right: 1px solid #555;
             padding-right: 3rem;
-            ${responsive.md} {
+            ${responsive.lg} {
                 padding-right: 0;
                 border-right: none;
                 border-top: 1px solid #555;
@@ -86,14 +86,14 @@ const MenuGroup = styled.div`
         }
         .menu-section-sm:nth-child(2) {
             padding-left: 3rem;
-            ${responsive.md} {
+            ${responsive.lg} {
                 padding-left: 0;
                 border-top: 1px solid #555;
                 padding-top: 2rem;
                 margin-top: 2.5rem;
             }
         }
-        ${responsive.md} {
+        ${responsive.lg} {
             display: block;
         }
     }
@@ -105,7 +105,7 @@ const MenuSection = styled.div`
         padding-top: 2.5rem;
         margin-top: 3rem;
         grid-column: 1 / span 2;
-        ${responsive.md} {
+        ${responsive.lg} {
             padding-top: 2rem;
             margin-top: 2.5rem;
         }
@@ -116,7 +116,7 @@ const MenuTitle = styled.h3`
     color: #111;
     font-weight: 400;
     margin-bottom: 1.5rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 1rem;
     }
 `

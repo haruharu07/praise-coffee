@@ -12,13 +12,12 @@ const h1 = styled.h1`
     line-height: 1.5;
     margin-bottom: 5rem;
     ${commonStyles};
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 3.2rem;
-        margin-bottom: 3.6rem;
+        margin-bottom: 4rem;
     }
     ${responsive.sm} {
         font-size: 2.4rem;
-        margin-bottom: 2rem;
     }
 `
 
@@ -28,7 +27,7 @@ const h2 = styled.h2`
     line-height: 1.5;
     margin-bottom: 4rem;
     ${commonStyles};
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 3rem;
     }
     ${responsive.sm} {

@@ -13,6 +13,9 @@ const customSlick = css`
         &::before {
             display: none;
         }
+        &:hover {
+            opacity: .9;
+        }
         @media screen and (max-width: 1040px) {
             display: none!important;
         }

@@ -32,7 +32,7 @@ const ItemImage = styled.div`
     margin-bottom: 1rem;
     transition: all .5s;
     /* box-shadow: rgba(0,0,0,0.08) 0px 30px 60px -10px, rgba(0,0,0,0.1) 0px 18px 36px -18px; */
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 0.5rem;
     }
 `

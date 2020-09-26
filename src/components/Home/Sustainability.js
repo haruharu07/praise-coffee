@@ -113,7 +113,7 @@ const ItemMore = styled.p`
     svg {
         margin-left: 1rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 1.6rem;
         color: ${props => props.theme.colors.highlight};
         svg path {

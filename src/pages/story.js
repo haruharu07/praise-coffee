@@ -50,9 +50,29 @@ const Story = ({ location }) => {
 
 export default Story
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-bottom: 5rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    ${responsive.lg} {
+        margin-bottom: 3rem;
+    }
+    ${responsive.sm} {
+        margin-bottom: 2rem;
+    }
+`
 
-const BlockWrapper = styled.div``
+const BlockWrapper = styled.div`
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        padding-bottom: 12rem;
+        ${responsive.lg} {
+            padding-bottom: 8rem;
+        }
+        ${responsive.sm} {
+            padding-bottom: 6rem;
+        }
+`
 
 const Block = styled.div`
     display: grid;
@@ -65,7 +85,7 @@ const Block = styled.div`
         grid-column: 2 / 3;
         grid-row: 1;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
     }
     ${responsive.sm} {
@@ -78,7 +98,7 @@ const Block = styled.div`
 const ItemImage = styled.div`
     height: 300px;
     background-color: #F7F0EA;
-    ${responsive.md} {
+    ${responsive.lg} {
         height: 400px;
     }
     ${responsive.sm} {
@@ -88,7 +108,7 @@ const ItemImage = styled.div`
 
 const TextBox = styled.div`
     padding-top: 1rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         padding-top: 2.4rem;
     }
 `
@@ -97,7 +117,7 @@ const ItemTitle = styled.h2`
     font-size: 2.4rem;
     font-weight: 400;
     margin-bottom: 2rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 2rem;
         margin-bottom: 1rem;
     }

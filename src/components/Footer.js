@@ -90,7 +90,7 @@ const FooterInner = styled.div`
     padding: 6rem 0 10rem;
     display: flex;
     justify-content: space-between;
-    ${responsive.md} {
+    ${responsive.lg} {
         padding: 5rem 0 5rem;
         display: block;
     }
@@ -98,7 +98,7 @@ const FooterInner = styled.div`
 
 const InContents = styled.div`
     display: flex;
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 3rem;
         padding-bottom: 3rem;
         position: relative;
@@ -121,7 +121,7 @@ const FooterLogo = styled.p`
     a {
         display: block;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         display: none;
     }
 `
@@ -132,7 +132,7 @@ const IconList = styled.ul`
     display: flex;
     justify-content: flex-end;
     margin-bottom: 2.5rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         justify-content: flex-start;
         margin-bottom: 2rem;
     }
@@ -147,7 +147,7 @@ const IconItem = styled.li`
     &:not(:last-child) {
         margin-right: 2rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         &:not(:last-child) {
             margin-right: 1.6rem;
         }
@@ -156,6 +156,6 @@ const IconItem = styled.li`
 
 const Copyright = styled.p`
     font-size: 1.2rem;
-    ${responsive.md} {
+    ${responsive.lg} {
     }
 `

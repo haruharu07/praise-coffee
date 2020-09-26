@@ -28,17 +28,20 @@ const globalStyle = createGlobalStyle`
         font-size : 62.5%;
     }
     body {
-        font-family: '秀英丸ゴシック L', 'Shuei MaruGo L', -apple-system, BlinkMacSystemFont,'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial,'Helvetica Neue','メイリオ', 'Meiryo',sans-serif;
+        font-family: 'Noto Sans JP', '秀英丸ゴシック L', 'Shuei MaruGo L', 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont,'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial,'Helvetica Neue','メイリオ', 'Meiryo',sans-serif;
         font-size: 1.6rem;
         line-height: 1.75;
         background-color: ${props => props.theme.colors.background};
         color: ${props => props.theme.colors.base};
         position: relative;
         overflow: scroll;
-        visibility: hidden;
+        /* visibility: hidden; */
     }
     body.typesquare_option {
-    visibility: visible;
+        visibility: visible;
+    }
+    .noscroll {
+        overflow: hidden;
     }
     article, aside, details, figcaption, figure,
     footer, header, hgroup, menu, nav, section {
@@ -78,9 +81,11 @@ const globalStyle = createGlobalStyle`
         vertical-align: top;
     }
     button,
-    input {
+    input,
+    textarea {
         font-family: inherit;
         font-size: inherit;
+        color: inherit;
         background: none;
         border: none;
         outline: none;

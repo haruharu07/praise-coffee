@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 import responsive from '@styles/responsive'
-import navigationStyle from "@styles/navigation"
+import navigationStyle from '@styles/navigation'
 
 import NavigationHeader from '@components/Navigation/Navigation.Header'
 import Container from '@components/Container'
@@ -55,7 +55,7 @@ const HeaderInner = styled.div`
     align-items: center;
     padding: 4rem 0 0;
     position: relative;
-    ${responsive.md} {
+    ${responsive.lg} {
         padding: 2rem 0 0;
     }
 `
@@ -65,7 +65,7 @@ const LogoTop = styled.h1`
     a {
         display: block;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         width: 82px;
         position: relative;
         z-index: 100;
@@ -80,7 +80,7 @@ const LogoPage = styled.p`
     a {
         display: block;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         width: 82px;
         position: relative;
         z-index: 100;

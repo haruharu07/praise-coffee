@@ -54,7 +54,7 @@ const Item = styled.dl`
     &:last-child {
         margin-bottom: 0;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 3rem;
     }
     ${responsive.sm} {
@@ -66,7 +66,7 @@ const ItemTitle = styled.dt`
     font-size: 2.4rem;
     color: #111;
     margin-bottom: 2rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 2rem;
         margin-bottom: 1rem;
     }

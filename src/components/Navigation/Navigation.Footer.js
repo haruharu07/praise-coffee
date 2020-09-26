@@ -46,7 +46,7 @@ const NavList = styled.ul`
     display: flex;
     margin-bottom: 1.5rem;
     position: relative;
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
         margin-bottom: 3rem;
         padding-bottom: 3rem;
@@ -68,7 +68,7 @@ const NavLink = styled.li`
     &:not(:last-child) {
         margin-right: 2rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 1.2rem;
         &:not(:last-child) {
             margin-right: 0;
@@ -79,7 +79,7 @@ const NavLink = styled.li`
 
 const SmallNavList = styled.ul`
     display: flex;
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
     }
 `
@@ -98,14 +98,14 @@ const SmallNavItem = styled.li`
         position: absolute;
         top: 3px;
         right: -10px;
-        ${responsive.md} {
+        ${responsive.lg} {
             display: none;
         }
     }
     &:last-child::after {
         display: none;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         &:not(:last-child) {
             margin-right: 0;
             margin-bottom: 1.2rem;

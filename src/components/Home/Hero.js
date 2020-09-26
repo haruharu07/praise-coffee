@@ -55,7 +55,7 @@ const HeroFull = styled.div`
     padding-bottom:45.2857142857%;
     position: relative;
     margin-bottom: 10rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         padding-bottom:78.2857142857%;
         margin-bottom: 8rem;
     }
@@ -95,7 +95,7 @@ const HeroBlock = styled.div`
     top: 0;
     left: 6%;
     color: #111;
-    ${responsive.md} {
+    ${responsive.lg} {
         left: 6%;
     }
     ${responsive.sm} {
@@ -108,7 +108,7 @@ const HeroText = styled.p`
     line-height: 1.4;
     margin-bottom: 3rem;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 3rem;
         margin-bottom: 2rem;
     }
@@ -123,7 +123,7 @@ const HeroTextSmall = styled.p`
     .newline {
         display: none;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 2rem;
         .newline {
             display: block;

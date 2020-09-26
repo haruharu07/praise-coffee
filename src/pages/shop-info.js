@@ -15,7 +15,7 @@ const ShopInfo = ({ data, location }) => {
     return (
         <Layout location={location}>
         <SEO title="お店について" />
-            <Section>
+            <Section className="dynamic2">
                 <Container>
                     <Headings.h1>お店について</Headings.h1>
                 </Container>
@@ -57,7 +57,7 @@ const ShopImage = styled.div`
     height: 380px;
     max-width: 1000px;
     margin: 0 auto 7rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         height: 350px;
         margin: 0 auto 6rem;
     }
@@ -72,7 +72,7 @@ const InfoWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     column-gap: 4rem;
     row-gap: 5rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
     }
 `
@@ -81,7 +81,7 @@ const Info = styled.div`
     min-height: 18rem;
     padding-bottom: 4.8rem;
     border-bottom: 1px solid #555;
-    ${responsive.md} {
+    ${responsive.lg} {
         min-height: 16rem;
         padding-bottom: 5rem;
         margin-bottom: 4rem;
@@ -101,7 +101,7 @@ const InfoTitle = styled.h2`
     font-weight: 400;
     color: #111;
     margin-bottom: 3rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 2.5rem;
     }
     ${responsive.sm} {

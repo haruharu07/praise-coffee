@@ -67,7 +67,7 @@ const Heading = styled.h2`
     .newline {
         display: none;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         width: 35%;
     }
     ${responsive.sm} {
@@ -104,7 +104,7 @@ const ItemGrid = styled.div`
         stroke: ${props => props.theme.colors.highlight};
         transition: all .5s;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         grid-template-columns: 15% 85%;
         column-gap: 2rem;
         padding: 3rem 0 4rem;
@@ -117,7 +117,7 @@ const ItemGrid = styled.div`
 
 const ItemLogo = styled.p`
     width: 132px;
-    ${responsive.md} {
+    ${responsive.lg} {
         width: auto;
     }
     ${responsive.sm} {
@@ -130,7 +130,7 @@ const ItemText = styled.p`
     margin-bottom: 2rem;
     color: rgba(0,0,0,0.5);
     line-height: 1.5;
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 2.4rem;
         margin-bottom: 1rem;
     }
@@ -145,7 +145,7 @@ const ItemMore = styled.p`
     svg {
         margin-left: 1rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 1.6rem;
         color: ${props => props.theme.colors.highlight};
         svg path {

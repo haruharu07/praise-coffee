@@ -26,8 +26,5 @@ const navigationStyle = css`
         opacity: 1;
         transform: translateX(0px);
     }
-    body.noscroll {
-        overflow: hidden;
-    }
 `
 export default navigationStyle

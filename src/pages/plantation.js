@@ -9,6 +9,7 @@ import SEO from '@components/SEO'
 import Container from '@components/Container'
 import Headings from '@components/Headings'
 import Image from '@components/Image'
+import About from '@components/Home/About'
 
 const block = [
     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", title: "美味しいコーヒーと共に人生に豊かな時間を。", text: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。" },
@@ -42,13 +43,25 @@ const Plantation = ({ data, location }) => {
                     </BlockWrapper>
                 </Container>
             </Section>
+            <About />
         </Layout>
     )
 }
 
 export default Plantation
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-bottom: 12rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    ${responsive.lg} {
+        margin-bottom: 8rem;
+    }
+    ${responsive.sm} {
+        margin-bottom: 6rem;
+    }
+`
 
 const BlockWrapper = styled.div``
 
@@ -63,7 +76,7 @@ const Block = styled.div`
         grid-column: 2 / 3;
         grid-row: 1;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
     }
     ${responsive.sm} {
@@ -76,7 +89,7 @@ const Block = styled.div`
 const ItemImage = styled.div`
     height: 300px;
     background-color: #F7F0EA;
-    ${responsive.md} {
+    ${responsive.lg} {
         height: 400px;
     }
     ${responsive.sm} {
@@ -86,13 +99,16 @@ const ItemImage = styled.div`
 
 const TextBox = styled.div`
     padding-top: 1rem;
+    ${responsive.lg} {
+        padding-top: 2.4rem;
+    }
 `
 
 const ItemTitle = styled.h2`
     font-size: 2.4rem;
     font-weight: 400;
     margin-bottom: 2rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 2.0rem;
         margin-bottom: 1rem;
     }

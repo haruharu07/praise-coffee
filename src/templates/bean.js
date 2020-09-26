@@ -72,7 +72,7 @@ const Section = styled.section`
     &:last-child {
         margin-bottom: 0;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 8rem;
     }
     ${responsive.sm} {
@@ -85,7 +85,7 @@ const MenuHead = styled.div`
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
     margin-bottom: 3rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 2rem;
     }
     ${responsive.sm} {
@@ -101,7 +101,7 @@ const MenuDesc = styled.div`
             margin-bottom: 0;
         }
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
@@ -139,7 +139,7 @@ const Btn = styled.div`
         opacity: .9;
         color: #f6f6f6;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
         a {
             font-size: 1.4rem;
@@ -167,7 +167,7 @@ const ItemGrid = styled.div`
             color: ${(props) => props.theme.colors.highlight};
         }
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 2.5rem;
         padding: 3rem 0 5rem;
@@ -192,7 +192,7 @@ const Line = styled.div`
     &:last-of-type::after {
         width: 100%;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         &::after {
             width: 65%;
         }
@@ -206,14 +206,14 @@ const Heading = styled.h2`
     .newline {
         display: none;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         width: 35%;
     }
     ${responsive.sm} {
         font-size: 1.4rem;
         .newline {
-           display: block;
-         }
+            display: block;
+        }
     }
 `
 

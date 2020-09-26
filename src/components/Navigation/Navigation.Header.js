@@ -64,7 +64,7 @@ const NavigationHeader = ({ location }) => {
 export default NavigationHeader
 
 const Nav = styled.nav`
-    ${responsive.md} {
+    ${responsive.lg} {
         display: none;
     }
 `
@@ -99,7 +99,7 @@ const MenuBtn = styled.div`
     transition-property: transform;
     position: relative;
     z-index: 100;
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
     }
     &::before {

@@ -12,10 +12,10 @@ const block = [
     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", text: "カフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっています", url: "/menu", page: "カフェのメニューをみる" }
 ]
 
-const Community = () => {
+const Work = () => {
 
     return (
-        <Section className="section">
+        <Section>
             <Container>
                 <Headings.h2>Praise Coffeeの取り組み</Headings.h2>
                 <BlockWrapper>
@@ -45,9 +45,17 @@ const Community = () => {
     )
 }
 
-export default Community
+export default Work
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-bottom: 12rem;
+    ${responsive.lg} {
+        margin-bottom: 8rem;
+    }
+    ${responsive.sm} {
+        margin-bottom: 6rem;
+    }
+`
 
 const BlockWrapper = styled.div``
 
@@ -65,7 +73,7 @@ const Block = styled.div`
     &:nth-child(even) .item-textBox {
         grid-column: 1 / 4;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         display: block;
         &:not(:last-child) {
             margin-bottom: 4rem;
@@ -128,7 +136,7 @@ const TextBox = styled.div`
 
 const ItemText = styled.p`
     margin-bottom: 2rem;
-    ${responsive.md} {
+    ${responsive.lg} {
         margin-bottom: 1rem;
     }
 `
@@ -139,7 +147,7 @@ const ItemMore = styled.p`
     svg {
         margin-left: 1rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         font-size: 1.6rem;
         color: ${props => props.theme.colors.highlight};
         svg path {

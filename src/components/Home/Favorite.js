@@ -42,7 +42,7 @@ const ItemGrid = styled.div`
             color: ${(props) => props.theme.colors.highlight};
         }
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 2.5rem;
     }

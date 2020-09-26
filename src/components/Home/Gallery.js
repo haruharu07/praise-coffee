@@ -140,7 +140,7 @@ const Section = styled.section`
     .heading {
         margin-bottom: 2rem;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         padding: 5rem 0 5rem;
         .heading {
             padding-top: 5rem;
@@ -154,7 +154,7 @@ const Section = styled.section`
             }
         }
     }
-    ${responsive.sm} {
+    ${responsive.lg} {
         padding: 4rem 0 5rem;
         .heading {
             svg {
@@ -169,7 +169,7 @@ const Section = styled.section`
 const Card = styled.div`
     padding: 0 6%;
     height: 20vw;
-    ${responsive.md} {
+    ${responsive.lg} {
         padding: 0 4%;
         height: 30vw;
     }
@@ -199,7 +199,7 @@ const Social = styled.div`
         fill: ${(props) => props.theme.colors.highlight};
         transition: all .5s;
     }
-    ${responsive.md} {
+    ${responsive.lg} {
         justify-content: center;
         margin-top: 2.5rem;
     }

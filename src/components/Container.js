@@ -15,7 +15,7 @@ const IndexContent = styled.div`
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;
-    ${responsive.md} {
+    ${responsive.lg} {
         max-width: 960px;
     }
 `
