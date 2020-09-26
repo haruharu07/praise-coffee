@@ -138,7 +138,7 @@ const MobileNav = styled.nav`
     width: 100%;
     height: 100%;
     background-color: ${props => props.theme.colors.background};
-    padding-top: 8rem;
+    padding-top: 6rem;
 `
 
 const MobileNavList = styled.ul`
@@ -166,7 +166,7 @@ const MobileNavLink = styled.li`
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 3rem 0;
+        padding: 2.4rem 0;
         opacity: 0;
         transform: translateX(-10px);
     }
