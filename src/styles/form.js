@@ -26,6 +26,14 @@ const formStyle = css`
             opacity: .9;
         }
     }
+    .contactForm-submit:disabled {
+        background-color: #eee;
+        border: none;
+        cursor: default;
+        &:hover {
+            opacity: 1;
+        }
+    }
     ${responsive.sm} {
         .contactForm-input {
             padding: 1.2rem 1.8rem;

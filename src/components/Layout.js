@@ -25,7 +25,7 @@ const Layout = props => {
     }
 
     let contact;
-    if(location.pathname === "/contact") {
+    if(location.pathname === "/contact" || location.pathname === "/thank-you") {
         contact = ""
     } else {
         contact =
@@ -65,7 +65,7 @@ const ContentHome = styled.div`
     }
     ${responsive.sm} {
         .section {
-            margin-bottom: 6rem;
+            margin-bottom: 5rem;
         }
     }
 `

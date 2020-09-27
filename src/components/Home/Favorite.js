@@ -27,7 +27,12 @@ const Favorite = ({ posts }) => {
 
 export default Favorite
 
-const Section = styled.section``
+const Section = styled.section`
+    ${responsive.sm} {
+        background-color: #eeebe5;
+        padding: 5rem 0 5rem;
+    }
+`
 
 const ItemGrid = styled.div`
     display: grid;

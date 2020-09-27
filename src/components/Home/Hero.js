@@ -85,7 +85,7 @@ const HeroContent = styled.div`
     left: 0;
     ${responsive.sm} {
         position: initial;
-        background-color: #eeebe5;
+        background-color: #f7f0ea;
         padding: 3.2rem 0 4rem;
     }
 `
