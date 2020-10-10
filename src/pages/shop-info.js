@@ -87,6 +87,9 @@ const Info = styled.div`
         padding-bottom: 5rem;
         margin-bottom: 4rem;
     }
+    ${responsive.md} {
+        width: 70%;
+    }
     ${responsive.sm} {
         min-height: 14rem;
         padding-bottom: 4rem;
@@ -132,6 +135,7 @@ const Btn = styled.div`
     ${responsive.sm} {
         margin-top: 1rem;
         a {
+            width: 100%;
             font-size: 1.4rem;
         }
     }

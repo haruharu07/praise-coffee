@@ -17,7 +17,7 @@ const h1 = styled.h1`
         margin-bottom: 4rem;
     }
     ${responsive.sm} {
-        font-size: 2.4rem;
+        font-size: 2.8rem;
         margin-bottom: 2.4rem;
     }
 `
