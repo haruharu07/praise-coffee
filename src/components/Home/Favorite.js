@@ -7,7 +7,6 @@ import Headings from '@components/Headings'
 import PostCard from '@components/PostCard'
 
 const Favorite = ({ posts }) => {
-
     return (
         <Section className="section">
             <Container>
@@ -22,17 +21,11 @@ const Favorite = ({ posts }) => {
             </Container>
         </Section>
     )
-
 }
 
 export default Favorite
 
-const Section = styled.section`
-    ${responsive.sm} {
-        background-color: #eeebe5;
-        padding: 5rem 0 5rem;
-    }
-`
+const Section = styled.section``
 
 const ItemGrid = styled.div`
     display: grid;

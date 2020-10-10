@@ -47,7 +47,12 @@ const Privacy = ({ location }) => {
 
 export default Privacy
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-top: 6rem;
+    ${responsive.md} {
+        margin-top: 4rem;
+    }
+`
 
 const Item = styled.dl`
     margin-bottom: 4rem;

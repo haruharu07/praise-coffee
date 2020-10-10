@@ -136,7 +136,7 @@ export default Gallery
 
 const Section = styled.section`
     padding: 6rem 0 8rem;
-    background-color: #F2DAD7;
+    background-color: #f9e4e1;
     .heading {
         margin-bottom: 2rem;
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import GatsbyImage from 'gatsby-image'
 
 import responsive from '@styles/responsive'
 
@@ -8,38 +9,47 @@ import Layout from '@components/Layout'
 import SEO from '@components/SEO'
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-import Image from '@components/Image'
+import HeroPage from '@components/Hero.Page'
 import Sustainability from "@components/Home/Sustainability"
 
-const block = [
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", title: "美味しいコーヒーと共に人生に豊かな時間を。", text: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", title: "美味しいコーヒーと共に人生に豊かな時間を。", text: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", title: "美味しいコーヒーと共に人生に豊かな時間を。", text: "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト。" }
-]
 
-const Story = ({ location }) => {
+const Story = ({ data, location }) => {
+
+    const heroImage = data.contentfulMainVisual.story.fluid
+    const posts = data.allContentfulStory.edges
 
     return (
         <Layout location={location} >
         <SEO title="ストーリー" />
+            <HeroPage>
+                <GatsbyImage
+                        fluid={heroImage}
+                        alt="ストーリー"
+                    />
+            </HeroPage>
             <Section>
                 <Container>
                     <Headings.h1>ストーリー</Headings.h1>
                     <BlockWrapper>
-                        {block.map(post => (
-                            <Block>
-                                <ItemImage className="item-image">
-                                    <Image
-                                        filename={post.filename}
-                                        alt={post.alt}
-                                    />
-                                </ItemImage>
-                                <TextBox>
-                                    <ItemTitle>{post.title}</ItemTitle>
-                                    <ItemText>{post.text}</ItemText>
-                                </TextBox>
-                            </Block>
-                        ))}
+                        {posts.map(({node}) => {
+                            return (
+                                <Block>
+                                    <ItemImage className="item-image">
+                                        <GatsbyImage
+                                            fluid={node.image.fluid}
+                                            alt={node.title}
+                                        />
+                                    </ItemImage>
+                                    <TextBox>
+                                        <ItemTitle>{node.title}</ItemTitle>
+                                        <ItemText
+                                            dangerouslySetInnerHTML={{__html:node.text.childMarkdownRemark.html}}
+                                        />
+                                        <ItemAccent>{node.accent}</ItemAccent>
+                                    </TextBox>
+                                </Block>
+                            )
+                        })}
                     </BlockWrapper>
                 </Container>
             </Section>
@@ -98,6 +108,9 @@ const Block = styled.div`
 const ItemImage = styled.div`
     height: 300px;
     background-color: #F7F0EA;
+    & > div {
+        height: 100%;
+    }
     ${responsive.lg} {
         height: 400px;
     }
@@ -107,7 +120,6 @@ const ItemImage = styled.div`
 `
 
 const TextBox = styled.div`
-    padding-top: 1rem;
     ${responsive.lg} {
         padding-top: 2.4rem;
     }
@@ -118,18 +130,46 @@ const ItemTitle = styled.h2`
     font-weight: 400;
     margin-bottom: 2rem;
     ${responsive.lg} {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
     }
 `
 
-const ItemText = styled.p``
+const ItemText = styled.div`
+    margin-bottom: 1rem;
+`
+
+const ItemAccent = styled.p`
+    color: #000;
+`
 
 export const pageQuery = graphql`
     query {
-        site {
-            siteMetadata {
-                title
+        allContentfulStory (
+            sort: { fields: createdAt, order: ASC }
+        ) {
+            edges {
+                node {
+                    title
+                    accent
+                    text {
+                        childMarkdownRemark {
+                            html
+                        }
+                    }
+                    image {
+                        fluid {
+                            ...GatsbyContentfulFluid
+                        }
+                    }
+                }
+            }
+        }
+        contentfulMainVisual {
+            story {
+                fluid {
+                    ...GatsbyContentfulFluid
+                }
             }
         }
     }

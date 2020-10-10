@@ -97,6 +97,7 @@ const globalStyle = createGlobalStyle`
             outline: none;
         }
     }
+
 `
 
 export default globalStyle

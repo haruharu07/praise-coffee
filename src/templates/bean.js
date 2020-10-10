@@ -12,8 +12,8 @@ import BeanData from '@components/BeanData'
 import PostCard from '@components/PostCard'
 
 const BeanPost = ({data, location}) => {
-    const post = data.contentfulMenu
-    const posts = data.allContentfulMenu.edges
+    const post = data.contentfulBeans
+    const posts = data.allContentfulBeans.edges
 
     return (
         <Layout location={location}>
@@ -69,11 +69,19 @@ export default BeanPost
 
 const Section = styled.section`
     margin-bottom: 10rem;
+    &:first-child {
+        margin-top: 6rem;
+    }
     &:last-child {
         margin-bottom: 0;
     }
     ${responsive.lg} {
         margin-bottom: 8rem;
+    }
+    ${responsive.md} {
+        &:first-child {
+            margin-top: 4rem;
+        }
     }
     ${responsive.sm} {
         margin-bottom: 6rem;
@@ -231,7 +239,7 @@ const ItemMore = styled.p`
 
 export const pageQuery = graphql`
     query blogPost ($slug: String!) {
-        allContentfulMenu (
+        allContentfulBeans (
         filter: { favorite: {eq: true} }
         limit: 4
     ) {
@@ -247,7 +255,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        contentfulMenu (slug: { eq: $slug}) {
+        contentfulBeans (slug: { eq: $slug}) {
             title
             origin
             varieties

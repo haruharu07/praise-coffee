@@ -20,11 +20,10 @@ const Sustainability = () => {
                     <TextBox>
                         <Link to="/plantation">
                             <ItemTitle>
-                                エシカルな調達
+                                高品質のスペシャルティコーヒー
                             </ItemTitle>
                             <ItemText>
-                                テキストテキストテキストテキストテキストテキストテキストテキスト<br />
-                                農園のことを知ってみませんか？
+                                エシカルな調達。生産者の顔が見える関係性。美味しい一杯のコーヒーになるまでには、コーヒーを育てる良い環境の農園と、そこで働く農家の方々の情熱と努力があります。
                             </ItemText>
                             <ItemMore className="item-more">
                                     農園について<svg width="35" height="7" viewBox="0 0 35 7" version="1.1"><g fill="none"><g><path d="M 3.5 0L 6.53109 5.25L 0.468911 5.25L 3.5 0Z" transform="matrix(0 1 -1 0 35 0)" fill="#212a2f"></path><line y1="-0.5" x2="30" y2="-0.5" transform="translate(0 4)" stroke="#212a2f"></line></g></g></svg>
@@ -44,7 +43,7 @@ const Section = styled.section``
 const Block = styled.div`
     display: grid;
     grid-template-columns: repeat(24, 1fr);
-    ${responsive.sm} {
+    ${responsive.md} {
         display: block;
     }
 `
@@ -52,11 +51,23 @@ const Block = styled.div`
 const ItemImage = styled.div`
     grid-column: 2 / 12;
     height: 32rem;
+    ${responsive.lg} {
+        grid-column: 2 / 10;
+        height: 30rem;
+    }
+    ${responsive.md} {
+        width: 38rem;
+        margin: auto;
+    }
+    ${responsive.sm} {
+        width: 28rem;
+        height: 26rem;
+    }
 `
 
 const TextBox = styled.div`
-    grid-column: 13 / 23;
-    padding-top: 7rem;
+    grid-column: 13 / 24;
+    padding-top: 6rem;
     a {
         display: block;
     }
@@ -84,13 +95,19 @@ const TextBox = styled.div`
         stroke: ${props => props.theme.colors.highlight};
         transition: all .5s;
     }
+    ${responsive.lg} {
+        grid-column: 11 / 24;
+    }
+    ${responsive.md} {
+        padding-top: 2rem;
+    }
     ${responsive.sm} {
         padding-top: 0;
     }
 `
 
 const ItemTitle = styled.h2`
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 400;
     color: #111;
     margin-bottom: 2rem;

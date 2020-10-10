@@ -37,7 +37,12 @@ const ThankYou = ({location}) => {
 
 export default ThankYou
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-top: 6rem;
+    ${responsive.md} {
+        margin-top: 4rem;
+    }
+`
 
 const Headline = styled.h1`
     width: 120px;

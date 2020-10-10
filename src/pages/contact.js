@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 import responsive from '@styles/responsive'
 import formStyle from '@styles/form'
@@ -27,6 +28,10 @@ const Contact = ({ location }) => {
             <Section>
                 <Container>
                     <Headings.h1>お問い合わせ</Headings.h1>
+                    <Copy>
+                        『Praise Coffee』へのお問い合わせは、下記フォームからご連絡ください。<br />
+                        電話番号や住所、営業時間など、お店の情報については「<Link to="/shop-info">お店について</Link>」のページに記載しております。
+                    </Copy>
                     <ContactForm>
                         <form name="contact" method="POST" data-netlify="true" action="/thank-you">
                             <input type="hidden" name="form-name" value="contact"/>
@@ -55,7 +60,25 @@ const Contact = ({ location }) => {
 
 export default Contact
 
-const Section = styled.section``
+const Section = styled.section`
+    margin-top: 6rem;
+    ${responsive.md} {
+        margin-top: 4rem;
+    }
+`
+
+const Copy = styled.p`
+    margin-bottom: 4rem;
+    a {
+        color: ${props => props.theme.colors.highlight};
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+    ${responsive.sm} {
+        margin-bottom: 3rem;
+    }
+`
 
 const ContactForm = styled.div`
     ${formStyle}

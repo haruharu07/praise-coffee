@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import responsive from '@styles/responsive'
+import GatsbyImage from 'gatsby-image'
 
 import SEO from '@components/SEO'
 import Layout from '@components/Layout'
@@ -9,12 +10,14 @@ import Container from '@components/Container'
 import Headings from '@components/Headings'
 import PostCard from '@components/PostCard'
 import About from '@components/Home/About'
+import HeroPage from '@components/Hero.Page'
 
 
 const BeanList = ({data, location}) => {
 
     const title = data.site.siteMetadata.title
-    const posts = data.allContentfulMenu.edges
+    const heroImage = data.contentfulMainVisual.beans.fluid
+    const posts = data.allContentfulBeans.edges
 
     return (
         <Layout location={location} title={title}>
@@ -22,6 +25,12 @@ const BeanList = ({data, location}) => {
                 title="コーヒー豆"
                 keywords={[`blog`, `gatsby`, `javascript`, `react`]}
             />
+            <HeroPage>
+                <GatsbyImage
+                    fluid={heroImage}
+                    alt="コーヒー豆"
+                />
+            </HeroPage>
             <Section>
                 <Container>
                     <Headings.h1>コーヒー豆</Headings.h1>
@@ -86,8 +95,8 @@ query ($skip: Int!, $limit: Int!) {
             title
         }
     }
-    allContentfulMenu (
-        sort: { fields: createdAt, order: DESC }
+    allContentfulBeans (
+        sort: { fields: createdAt, order: ASC }
         limit: $limit
         skip: $skip
     ) {
@@ -100,6 +109,13 @@ query ($skip: Int!, $limit: Int!) {
                             ...GatsbyContentfulFluid
                         }
                     }
+                }
+            }
+        }
+        contentfulMainVisual {
+            beans {
+                fluid(maxWidth: 2000) {
+                    ...GatsbyContentfulFluid
                 }
             }
         }

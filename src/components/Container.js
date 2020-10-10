@@ -13,9 +13,12 @@ export default Container
 const IndexContent = styled.div`
     max-width: ${props => theme.sizes.maxWidth};
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 5rem;
     position: relative;
-    ${responsive.lg} {
-        max-width: 960px;
+    ${responsive.xlg} {
+        padding: 0 3rem;
+    }
+    ${responsive.md} {
+        padding: 0 2rem;
     }
 `

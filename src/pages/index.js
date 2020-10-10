@@ -13,12 +13,13 @@ import Gallery from '@components/Home/Gallery'
 
 const IndexPage = ({ location, data }) => {
 
-    const posts = data.allContentfulMenu.edges
+    const posts = data.allContentfulBeans.edges
+    const hero = data.contentfulMainVisual
 
     return (
         <Layout location={location}>
             <SEO title="美味しいコーヒーと共に" />
-            <Hero />
+            <Hero hero={hero} />
             <Sustainability />
             <Favorite posts={posts} />
             <About />
@@ -33,7 +34,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
     query {
-        allContentfulMenu (
+        allContentfulBeans (
             filter: { favorite: {eq: true} }
             limit: 4
         ) {
@@ -49,5 +50,12 @@ export const pageQuery = graphql`
                     }
                 }
             }
+        contentfulMainVisual {
+            home {
+                fluid(maxWidth: 2000) {
+                    ...GatsbyContentfulFluid
+                }
+            }
+        }
     }
 `

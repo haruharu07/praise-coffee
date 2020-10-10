@@ -4,10 +4,8 @@ import { Link } from 'gatsby'
 import responsive from "@styles/responsive"
 
 import Container from '@components/Container'
-import SiteLogo from '@images/logo.jpg'
 
 const About = () => {
-
     return (
         <Section className="section">
             <Container>
@@ -15,13 +13,9 @@ const About = () => {
                     <Heading>Praise Coffee<br className="newline" />について</Heading>
                 </Line>
                 <ItemGrid>
-                    <ItemLogo>
-                        <img src={SiteLogo} alt="Praise Coffee" />
-                    </ItemLogo>
                     <Link to="/story" className="item-link">
                         <ItemText>
-                            “週に2回だけオープンするコーヒー屋さん。<br />
-                            テキストテキストテキストテキスト。テキストテキストテキストテキスト。”
+                            沖縄本島の南、ハートの地形をしたハートのまち南城市からココロにまで染み渡る美味しいコーヒーを提供したい。週に2回オープンするコーヒー屋さんです。
                         </ItemText>
                         <ItemMore className="item-more">
                             ストーリーをみる<svg width="35" height="7" viewBox="0 0 35 7" version="1.1"><g fill="none"><g><path d="M 3.5 0L 6.53109 5.25L 0.468911 5.25L 3.5 0Z" transform="matrix(0 1 -1 0 35 0)" fill="#212a2f"></path><line y1="-0.5" x2="30" y2="-0.5" transform="translate(0 4)" stroke="#212a2f"></line></g></g></svg>
@@ -32,7 +26,6 @@ const About = () => {
             </Container>
         </Section>
     )
-
 }
 
 export default About
@@ -79,20 +72,22 @@ const Heading = styled.h2`
 `
 
 const ItemGrid = styled.div`
-    display: grid;
-    grid-template-columns: 20% 80%;
-    padding: 5rem 0 5rem;
+    padding: 4rem 4rem 5rem;
     .item-link svg {
         transition: all .5s;
     }
     .item-link svg path, .item-link svg line {
         transition: all .5s;
     }
+    .item-link:hover p {
+        color: ${props => props.theme.colors.highlight};
+        transition: all .5s;
+    }
     .item-link:hover .item-more {
         color: ${props => props.theme.colors.highlight};
         transition: all .5s;
     }
-    .item-link:hover p svg {
+    .item-link:hover svg {
         transform: translateX(2px);
         transition: all .5s;
     }
@@ -105,31 +100,19 @@ const ItemGrid = styled.div`
         transition: all .5s;
     }
     ${responsive.lg} {
-        grid-template-columns: 15% 85%;
-        column-gap: 2rem;
-        padding: 3rem 0 4rem;
+        padding: 3rem 3rem 4rem;
     }
     ${responsive.sm} {
-        display: block;
         padding: 2rem 0 3rem;
     }
 `
 
-const ItemLogo = styled.p`
-    width: 132px;
-    ${responsive.lg} {
-        width: auto;
-    }
-    ${responsive.sm} {
-        display :none;
-    }
-`
-
 const ItemText = styled.p`
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     margin-bottom: 2rem;
     color: rgba(0,0,0,0.5);
     line-height: 1.5;
+    transition: all .5s;
     ${responsive.lg} {
         font-size: 2.4rem;
         margin-bottom: 1rem;

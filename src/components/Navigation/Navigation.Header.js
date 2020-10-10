@@ -4,16 +4,6 @@ import responsive from "@styles/responsive"
 
 import styled from 'styled-components'
 
-const NavItem = ({ navName, navLink, path }) => {
-    return (
-        <NavLink className={navLink === path && "active"}>
-            <Link to={ navLink }>
-                {navName}
-            </Link>
-        </NavLink>
-    )
-}
-
 const MobileNavItem = ({ navName, navLink, path }) => {
     return (
         <MobileNavLink className={navLink === path && "active"}>
@@ -36,16 +26,6 @@ const NavigationHeader = ({ location }) => {
 
     return (
         <>
-        <Nav>
-            <NavList>
-                <NavItem navName="ストーリー" navLink="/story" path={path} />
-                <NavItem navName="コーヒー豆" navLink="/beans" path={path} />
-                <NavItem navName="カフェのメニュー" navLink="/menu" path={path} />
-                <NavItem navName="農園について" navLink="/plantation" path={path} />
-                <NavItem navName="お店について" navLink="/shop-info" path={path} />
-            </NavList>
-        </Nav>
-
         <MenuBtn className="menu-button" onClick={activate}></MenuBtn>
         <MobileNav className="mobile-nav" onClick={activate}>
             <MobileNavList>
@@ -63,33 +43,9 @@ const NavigationHeader = ({ location }) => {
 
 export default NavigationHeader
 
-const Nav = styled.nav`
-    ${responsive.lg} {
-        display: none;
-    }
-`
-
-const NavList = styled.ul`
-    display: flex;
-    align-items: center;
-    .active {
-        color: ${props => props.theme.colors.base};
-    }
-`
-
-const NavLink = styled.li`
-    margin-right: 3rem;
-    color: rgba(0,0,0,0.5);
-    &:last-child {
-        margin-right: 0;
-    }
-    a:hover {
-        color: ${props => props.theme.colors.base};
-    }
-`
-
 const MenuBtn = styled.div`
-    display: none;
+    display: block;
+    cursor: pointer;
     width: 24px;
     height: 24px;
     margin-right: 1rem;
@@ -107,7 +63,7 @@ const MenuBtn = styled.div`
         content: "";
         width: 100%;
         height: 2px;
-        background-color: #111;
+        background-color: ${props => props.theme.colors.base};
         position: absolute;
         top: 5px;
         left: 0;
@@ -119,7 +75,7 @@ const MenuBtn = styled.div`
         content: "";
         width: 100%;
         height: 2px;
-        background-color: #111;
+        background-color: ${props => props.theme.colors.base};
         position: absolute;
         bottom: 5px;
         left: 0;
@@ -138,12 +94,26 @@ const MobileNav = styled.nav`
     width: 100%;
     height: 100%;
     background-color: ${props => props.theme.colors.background};
-    padding-top: 6rem;
+    padding: 8vh 0 4vh;
+    ${responsive.lg} {
+        padding-top: 10vh 0 4vh;
+    }
+    ${responsive.sm} {
+        padding-top: 6vh 0 2vh;
+    }
 `
 
 const MobileNavList = styled.ul`
+    width: 28vw;
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0 12rem 0 auto;
     .active {
-        color: #111;
+        color: ${props => props.theme.colors.base};
+    }
+    ${responsive.lg} {
+        width: 100vw;
+        margin: auto;
     }
 `
 
@@ -151,7 +121,7 @@ const MobileNavLink = styled.li`
     color: rgba(0,0,0,0.5);
     position: relative;
     &:last-child::before {
-        display: block;
+        display: none;
         content: "";
         width: 220px;
         height: 1px;
@@ -164,23 +134,29 @@ const MobileNavLink = styled.li`
     }
     a {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
         padding: 2.4rem 0;
         opacity: 0;
-        transform: translateX(-10px);
+        font-size: 2.8rem;
+        transform: translateX(30px);
     }
     a:hover {
         color: #111;
     }
     ${responsive.lg} {
+        &:last-child::before {
+            display: block;
+        }
         a {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
+            justify-content: center;
+            transform: translateX(0);
         }
     }
     ${responsive.sm} {
         &:last-child::before {
-            width: 160px;
+            width: 150px;
         }
         a {
             font-size: 1.6rem;

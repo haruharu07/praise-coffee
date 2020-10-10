@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import theme from '@styles/theme'
 
 const customSlick = css`
     /*react-slick*/
@@ -16,15 +17,28 @@ const customSlick = css`
         &:hover {
             opacity: .9;
         }
-        @media screen and (max-width: 1040px) {
-            display: none!important;
-        }
     }
     .slick-next {
-        left: calc(50% + 44.8rem);
+        left: calc(50% + 49.8rem);
     }
     .slick-prev {
-        left: calc(50% + 36.6rem);
+        left: calc(50% + 41.6rem);
+    }
+    @media screen and (max-width: ${props => theme.sizes.maxWidth}) {
+        .slick-arrow {
+            top: 123%;
+        }
+        .slick-next {
+            left: calc(50% + 4.1rem);
+        }
+        .slick-prev {
+            left: calc(50% + -4.1rem);
+        }
+    }
+    @media screen and (max-width: 920px) {
+        .slick-arrow {
+            display: none!important;
+        }
     }
 `
 export default customSlick

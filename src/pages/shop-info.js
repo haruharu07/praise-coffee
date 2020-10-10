@@ -1,30 +1,35 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
+import GatsbyImage from 'gatsby-image'
+
 import responsive from "@styles/responsive"
 
 import Layout from '@components/Layout'
 import SEO from '@components/SEO'
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-import Image from '@components/Image'
+import HeroPage from '@components/Hero.Page'
 
 
 const ShopInfo = ({ data, location }) => {
-    const post = data.contentfulStoreInfo
+
+    const heroImage = data.contentfulMainVisual.shopInfo.fluid
+    const post = data.contentfulShopInfo
+
     return (
         <Layout location={location}>
         <SEO title="お店について" />
-            <Section className="dynamic2">
+            <HeroPage>
+                <GatsbyImage
+                    fluid={heroImage}
+                    alt="お店について"
+                />
+            </HeroPage>
+            <Section>
                 <Container>
-                    <Headings.h1>お店について</Headings.h1>
+                    <Headings.h1 className="shop-headline">お店について</Headings.h1>
                 </Container>
-                <ShopImage>
-                    <Image
-                        filename="img_shop.jpg"
-                        alt="Praise Coffee"
-                    />
-                </ShopImage>
                 <Container>
                     <InfoWrapper>
                             <Info>
@@ -51,19 +56,15 @@ const ShopInfo = ({ data, location }) => {
 
 export default ShopInfo
 
-const Section = styled.section``
-
-const ShopImage = styled.div`
-    height: 380px;
-    max-width: 1000px;
-    margin: 0 auto 7rem;
-    ${responsive.lg} {
-        height: 350px;
-        margin: 0 auto 6rem;
+const Section = styled.section`
+    .shop-headline {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+        padding-bottom: 2rem;
     }
     ${responsive.sm} {
-        height: 220px;
-        margin: 0 auto 5rem;
+        .shop-headline {
+            padding-bottom: 1rem;
+        }
     }
 `
 
@@ -79,8 +80,8 @@ const InfoWrapper = styled.div`
 
 const Info = styled.div`
     min-height: 18rem;
-    padding-bottom: 4.8rem;
-    border-bottom: 1px solid #555;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
     ${responsive.lg} {
         min-height: 16rem;
         padding-bottom: 5rem;
@@ -90,6 +91,9 @@ const Info = styled.div`
         min-height: 14rem;
         padding-bottom: 4rem;
         margin-bottom: 3.2rem;
+        &:first-child {
+            padding-top: 1rem;
+        }
         p {
             font-size: 1.6rem;
         }
@@ -100,13 +104,10 @@ const InfoTitle = styled.h2`
     font-size: 2.4rem;
     font-weight: 400;
     color: #111;
-    margin-bottom: 3rem;
-    ${responsive.lg} {
-        margin-bottom: 2.5rem;
-    }
+    margin-bottom: 2.5rem;
     ${responsive.sm} {
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
 `
 
@@ -138,17 +139,19 @@ const Btn = styled.div`
 
 export const pageQuery = graphql`
     query {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-        contentfulStoreInfo {
+        contentfulShopInfo {
             address
             number
             opening {
                 childMarkdownRemark {
                     html
+                }
+            }
+        }
+        contentfulMainVisual {
+            shopInfo {
+                fluid(maxWidth: 2000) {
+                    ...GatsbyContentfulFluid
                 }
             }
         }

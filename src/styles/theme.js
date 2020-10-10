@@ -14,7 +14,7 @@ const theme = {
     },
     sizes: {
         bioWidth: "290px",
-        maxWidth: "1040px"
+        maxWidth: "1200px"
     },
 }
 

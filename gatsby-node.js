@@ -6,7 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
     return graphql(
     `
         {
-            allContentfulMenu {
+            allContentfulBeans {
                 edges {
                     node {
                         title
@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
     }
 
     // Create bean pages.
-    const posts = result.data.allContentfulMenu.edges
+    const posts = result.data.allContentfulBeans.edges
 
     posts.forEach((post) => {
 

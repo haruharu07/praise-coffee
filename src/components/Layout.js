@@ -53,15 +53,18 @@ export default Layout
 
 const ContentHome = styled.div`
     min-height: 120vh;
-    padding: 0 0 12rem;
+    padding: 7rem 0 12rem;
     .section {
         margin-bottom: 10rem;
     }
     ${responsive.lg} {
-        padding: 0 0 8rem;
+        padding: 7rem 0 8rem;
         .section {
             margin-bottom: 8rem;
         }
+    }
+    ${responsive.md} {
+        padding: 5rem 0 8rem;
     }
     ${responsive.sm} {
         .section {
@@ -71,11 +74,11 @@ const ContentHome = styled.div`
 `
 const ContentPage = styled.div`
     min-height: 120vh;
-    padding: 20rem 0 16rem;
+    padding: 7rem 0 16rem;
     ${responsive.lg} {
-        padding: 15rem 0 10rem;
+        padding: 7rem 0 10rem;
     }
-    ${responsive.sm} {
-        padding: 12rem 0 10rem;
+    ${responsive.md} {
+        padding: 5rem 0 8rem;
     }
 `
