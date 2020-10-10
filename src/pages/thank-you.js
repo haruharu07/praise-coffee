@@ -8,7 +8,7 @@ import Layout from '@components/Layout'
 import SEO from '@components/SEO'
 import Container from '@components/Container'
 
-import SiteLogo from '@images/logo.jpg'
+import SiteLogo from '@images/logo_meta.jpg'
 
 const ThankYou = ({location}) => {
     return (
