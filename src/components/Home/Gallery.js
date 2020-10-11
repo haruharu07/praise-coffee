@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Slider from 'react-slick'
+import GatsbyImage from 'gatsby-image'
 
 import responsive from '@styles/responsive'
 import customSlick from '@styles/custom-slick'
@@ -9,22 +10,22 @@ import customSlick from '@styles/custom-slick'
 
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-import Image from '@components/Image'
+// import Image from '@components/Image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-const posts = [
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" }
-]
+// const posts = [
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
+//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" }
+// ]
 
 function NextArrow(props) {
     const { className, style, onClick } = props;
@@ -57,7 +58,9 @@ function PrevArrow(props) {
 }
 
 
-const Gallery = () => {
+const Gallery = ({ insta }) => {
+
+    const nodeURL = 'https://www.instagram.com/p'
 
     const settings = {
         arrows: true,
@@ -65,7 +68,7 @@ const Gallery = () => {
         speed: 500,
         centerMode: true,
         centerPadding: '-8%',
-        slidesToShow: 5.5,
+        slidesToShow: 1,
         slidesToScroll: 1,
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
@@ -98,16 +101,28 @@ const Gallery = () => {
                 </Headings.h2>
             </Container>
             <Slider {...settings}>
-                {posts.map(post => (
+                {insta.map(({ node }) => {
+                    return (
+                        <a href={`${nodeURL}/${node.id}`} target="_blank" rel="noopener noreferrer">
+                            <Card>
+                                <GatsbyImage
+                                    fluid={node.localFile.childImageSharp.fluid}
+                                    alt="テスト"
+                                />
+                            </Card>
+                        </a>
+                    )
+                })}
+                {/* {insta.map(node => (
                     <Link to="#">
                         <Card>
-                            <Image
-                                filename={post.filename}
-                                alt={post.alt}
+                            <GatsbyImage
+                                fluid={node.localFile.childImageSharp.fluid}
+                                alt="テスト"
                             />
                         </Card>
                     </Link>
-                ))}
+                ))} */}
             </Slider>
             <Container>
             <Social>

@@ -167,7 +167,7 @@ export const pageQuery = graphql`
         }
         contentfulMainVisual {
             story {
-                fluid {
+                fluid (maxWidth: 2000) {
                     ...GatsbyContentfulFluid
                 }
             }

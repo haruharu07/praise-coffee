@@ -59,5 +59,11 @@ module.exports = {
             },
         },
         `gatsby-remark-responsive-iframe`,
+        {
+            resolve: `gatsby-source-instagram`,
+            options: {
+            username: `18598815726`,
+            },
+        },
     ],
 }

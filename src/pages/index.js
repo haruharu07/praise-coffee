@@ -15,6 +15,7 @@ const IndexPage = ({ location, data }) => {
 
     const posts = data.allContentfulBeans.edges
     const hero = data.contentfulMainVisual
+    const insta =  data.allInstaNode.edges
 
     return (
         <Layout location={location}>
@@ -24,7 +25,7 @@ const IndexPage = ({ location, data }) => {
             <Favorite posts={posts} />
             <About />
             <Work />
-            <Gallery />
+            <Gallery insta={insta} />
         </Layout>
     )
 
@@ -45,6 +46,20 @@ export const pageQuery = graphql`
                         featuredImage {
                             fluid(maxWidth: 515) {
                                 ...GatsbyContentfulFluid
+                            }
+                        }
+                    }
+                }
+            }
+            allInstaNode {
+                edges {
+                    node {
+                        id
+                        localFile {
+                            childImageSharp {
+                                fluid {
+                                ...GatsbyImageSharpFluid
+                                }
                             }
                         }
                     }
