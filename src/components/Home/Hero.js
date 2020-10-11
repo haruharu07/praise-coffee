@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import responsive from '@styles/responsive'
 import GatsbyImage from 'gatsby-image'
 
-import SiteLogo from "@images/logo.png"
+import SiteLogo from '@images/logo.png'
 
 const Hero = ({ hero }) => {
 

@@ -63,7 +63,7 @@ const HeaderInner = styled.div`
     }
     ${responsive.md} {
         padding: 0 2rem;
-        min-height: 5rem;
+        min-height: 6rem;
     }
 `
 

@@ -2,6 +2,9 @@ import { css } from 'styled-components'
 import theme from '@styles/theme'
 
 const customSlick = css`
+    .card-link:hover {
+        opacity: .9;
+    }
     /*react-slick*/
     .slick-arrow {
         display: flex;

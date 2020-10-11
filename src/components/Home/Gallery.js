@@ -10,22 +10,9 @@ import customSlick from '@styles/custom-slick'
 
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-// import Image from '@components/Image'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
-// const posts = [
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" },
-//     { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", url:"/" }
-// ]
 
 function NextArrow(props) {
     const { className, style, onClick } = props;
@@ -103,26 +90,16 @@ const Gallery = ({ insta }) => {
             <Slider {...settings}>
                 {insta.map(({ node }) => {
                     return (
-                        <a href={`${nodeURL}/${node.id}`} target="_blank" rel="noopener noreferrer">
+                        <a href={`${nodeURL}/${node.id}`} target="_blank" rel="noopener noreferrer" className="card-link" >
                             <Card>
                                 <GatsbyImage
                                     fluid={node.localFile.childImageSharp.fluid}
-                                    alt="テスト"
+                                    alt="Image from Instagram"
                                 />
                             </Card>
                         </a>
                     )
                 })}
-                {/* {insta.map(node => (
-                    <Link to="#">
-                        <Card>
-                            <GatsbyImage
-                                fluid={node.localFile.childImageSharp.fluid}
-                                alt="テスト"
-                            />
-                        </Card>
-                    </Link>
-                ))} */}
             </Slider>
             <Container>
             <Social>
@@ -184,6 +161,7 @@ const Section = styled.section`
 const Card = styled.div`
     padding: 0 6%;
     height: 20vw;
+    max-width: 600px;
     ${responsive.lg} {
         padding: 0 4%;
         height: 30vw;

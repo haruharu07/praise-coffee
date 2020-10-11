@@ -64,7 +64,7 @@ const ContentHome = styled.div`
         }
     }
     ${responsive.md} {
-        padding: 5rem 0 8rem;
+        padding: 6rem 0 8rem;
     }
     ${responsive.sm} {
         .section {
@@ -79,6 +79,6 @@ const ContentPage = styled.div`
         padding: 7rem 0 10rem;
     }
     ${responsive.md} {
-        padding: 5rem 0 8rem;
+        padding: 6rem 0 8rem;
     }
 `
