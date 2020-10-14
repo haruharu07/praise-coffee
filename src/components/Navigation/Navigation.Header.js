@@ -94,7 +94,7 @@ const MobileNav = styled.nav`
     width: 100%;
     height: 100%;
     background-color: ${props => props.theme.colors.background};
-    padding: 8vh 0 4vh;
+    padding: 7vh 0 4vh;
     ${responsive.lg} {
         padding-top: 10vh 0 4vh;
     }
@@ -136,9 +136,9 @@ const MobileNavLink = styled.li`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        padding: 2.4rem 0;
+        padding: 2rem 0;
         opacity: 0;
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         transform: translateX(30px);
     }
     a:hover {
@@ -149,6 +149,7 @@ const MobileNavLink = styled.li`
             display: block;
         }
         a {
+            padding: 2.4rem 0;
             font-size: 2.2rem;
             justify-content: center;
             transform: translateX(0);
@@ -159,6 +160,7 @@ const MobileNavLink = styled.li`
             width: 150px;
         }
         a {
+            padding: 2rem 0;
             font-size: 1.6rem;
         }
     }

@@ -56,6 +56,7 @@ const globalStyle = createGlobalStyle`
         :hover {
             color: ${props => props.theme.colors.highlight};
             transition: all .5s;
+            outline: none;
         }
     }
     ol, ul, li {
@@ -93,9 +94,6 @@ const globalStyle = createGlobalStyle`
         border-radius: 0;
         resize: none;
         outline-color: #111;
-        &:focus {
-            outline: none;
-        }
     }
 
 `

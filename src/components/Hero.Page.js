@@ -15,7 +15,7 @@ export default HeroPage
 
 const IndexContent = styled.div`
     height: 0;
-    padding-bottom: 30%;
+    padding-bottom: 28%;
     position: relative;
     margin: 0 auto 7rem;
     ${responsive.lg} {

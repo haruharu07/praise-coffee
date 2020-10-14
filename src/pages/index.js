@@ -13,9 +13,9 @@ import Gallery from '@components/Home/Gallery'
 
 const IndexPage = ({ location, data }) => {
 
-    const posts = data.allContentfulBeans.edges
     const hero = data.contentfulMainVisual
-    const insta =  data.allInstaNode.edges
+    const posts = data.allContentfulBeans.edges
+    const insta = data.allInstaNode.edges
 
     return (
         <Layout location={location}>
@@ -24,7 +24,7 @@ const IndexPage = ({ location, data }) => {
             <Sustainability />
             <Favorite posts={posts} />
             <About />
-            <Work />
+            <Work hero={hero} />
             <Gallery insta={insta} />
         </Layout>
     )
@@ -51,14 +51,14 @@ export const pageQuery = graphql`
                     }
                 }
             }
-            allInstaNode {
+            allInstaNode (limit: 8, sort: {order: DESC, fields: localFile___atime}) {
                 edges {
                     node {
                         id
                         localFile {
                             childImageSharp {
                                 fluid {
-                                ...GatsbyImageSharpFluid
+                                    ...GatsbyImageSharpFluid
                                 }
                             }
                         }
@@ -68,6 +68,16 @@ export const pageQuery = graphql`
         contentfulMainVisual {
             home {
                 fluid(maxWidth: 2000) {
+                    ...GatsbyContentfulFluid
+                }
+            }
+            beans {
+                fluid(maxWidth: 620) {
+                    ...GatsbyContentfulFluid
+                }
+            }
+            menu {
+                fluid(maxWidth: 620) {
                     ...GatsbyContentfulFluid
                 }
             }

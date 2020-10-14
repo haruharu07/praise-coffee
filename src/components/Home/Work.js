@@ -2,17 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from "gatsby"
 import responsive from '@styles/responsive'
+import GatsbyImage from 'gatsby-image'
 
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-import Image from '@components/Image'
+// import Image from '@components/Image'
 
-const block = [
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", text: "コーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売しています", url: "/beans", page: "コーヒー豆をみる" },
-    { filename: "img_coffee_beans.jpg", alt: "Praise Coffee", text: "カフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっています", url: "/menu", page: "カフェのメニューをみる" }
+const Work = ({ hero }) => {
+
+    const thumbnail01 = hero.beans.fluid
+    const thumbnail02 = hero.menu.fluid
+
+    const block = [
+    { filename: thumbnail01, alt: "Praise Coffee", text: "コーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売しています", url: "/beans", page: "コーヒー豆をみる" },
+    { filename: thumbnail02, alt: "Praise Coffee", text: "カフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっています", url: "/menu", page: "カフェのメニューをみる" }
 ]
-
-const Work = () => {
 
     return (
         <Section>
@@ -23,8 +27,8 @@ const Work = () => {
                         <Block>
                             <ItemImage className="item-image">
                                 <Link to={post.url}>
-                                    <Image
-                                        filename={post.filename}
+                                    <GatsbyImage
+                                        fluid={post.filename}
                                         alt={post.alt}
                                     />
                                 </Link>
@@ -93,6 +97,9 @@ const ItemImage = styled.div`
     a {
         display: block;
         height: 100%;
+        & > div {
+            height: 100%;
+        }
     }
     a:hover {
         opacity: .9;
