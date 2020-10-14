@@ -1,5 +1,5 @@
 const screenSize = {
-    sm: " 500px",
+    sm: "500px",
     md:"768px",
     lg: "920px",
     xlg: "1200px",

@@ -10,13 +10,14 @@ import SEO from '@components/SEO'
 import Container from '@components/Container'
 import Headings from '@components/Headings'
 import HeroPage from '@components/Hero.Page'
-import Sustainability from "@components/Home/Sustainability"
+import FavoritePage from '@components/Favorite.Page'
 
 
 const Story = ({ data, location }) => {
 
     const heroImage = data.contentfulMainVisual.story.fluid
     const posts = data.allContentfulStory.edges
+    const items = data.allContentfulBeans.edges
 
     return (
         <Layout location={location} >
@@ -53,7 +54,7 @@ const Story = ({ data, location }) => {
                     </BlockWrapper>
                 </Container>
             </Section>
-            <Sustainability />
+            <FavoritePage items={items} />
         </Layout>
     )
 }
@@ -61,28 +62,19 @@ const Story = ({ data, location }) => {
 export default Story
 
 const Section = styled.section`
-    margin-bottom: 5rem;
+    margin-bottom: 10rem;
     &:last-child {
         margin-bottom: 0;
     }
     ${responsive.lg} {
-        margin-bottom: 3rem;
+        margin-bottom: 8rem;
     }
     ${responsive.sm} {
-        margin-bottom: 2rem;
+        margin-bottom: 6rem;
     }
 `
 
-const BlockWrapper = styled.div`
-        border-bottom: 1px solid rgba(0,0,0,0.25);
-        padding-bottom: 12rem;
-        ${responsive.lg} {
-            padding-bottom: 8rem;
-        }
-        ${responsive.sm} {
-            padding-bottom: 6rem;
-        }
-`
+const BlockWrapper = styled.div``
 
 const Block = styled.div`
     display: grid;
@@ -159,6 +151,22 @@ export const pageQuery = graphql`
                     }
                     image {
                         fluid {
+                            ...GatsbyContentfulFluid
+                        }
+                    }
+                }
+            }
+        }
+        allContentfulBeans (
+        filter: { favorite: {eq: true} }
+        limit: 4
+        ) {
+            edges {
+                node {
+                    title
+                    slug
+                    featuredImage {
+                        fluid(maxWidth: 515) {
                             ...GatsbyContentfulFluid
                         }
                     }

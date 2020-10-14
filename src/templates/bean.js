@@ -1,19 +1,19 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
 import styled from 'styled-components'
-import responsive from "@styles/responsive"
+import responsive from '@styles/responsive'
 
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import Headings from '@components/Headings'
 import Container from '@components/Container'
 import BeanData from '@components/BeanData'
-import PostCard from '@components/PostCard'
+import FavoritePage from '@components/Favorite.Page'
 
 const BeanPost = ({data, location}) => {
     const post = data.contentfulBeans
-    const posts = data.allContentfulBeans.edges
+    const items = data.allContentfulBeans.edges
 
     return (
         <Layout location={location}>
@@ -40,27 +40,7 @@ const BeanPost = ({data, location}) => {
                     </Btn>
                 </Container>
             </Section>
-
-            <Section>
-                <Container>
-                    <Line>
-                        <Heading>Praise Coffee<br class="newline" />のお気に入り</Heading>
-                    </Line>
-                    <ItemGrid>
-                        {posts.map(({ node }) => {
-                            return (
-                                <PostCard node={node} />
-                            )
-                        })}
-                    </ItemGrid>
-                    <Line></Line>
-                    <ItemMore className="item-more">
-                        <Link to="/beans">
-                            すべてのコーヒー豆をみる
-                        </Link>
-                    </ItemMore>
-                </Container>
-            </Section>
+            <FavoritePage items={items} />
         </Layout>
         )
 }
@@ -158,82 +138,6 @@ const Btn = styled.div`
         a {
             padding: 1.2rem 1rem;
         }
-    }
-`
-
-const ItemGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2rem;
-    padding: 4rem 0 6rem;
-    .item-link {
-        &:hover {
-        opacity: 1;
-        }
-        &:hover .item-headline {
-            transition: .4s;
-            color: ${(props) => props.theme.colors.highlight};
-        }
-    }
-    ${responsive.lg} {
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 2.5rem;
-        padding: 3rem 0 5rem;
-    }
-    ${responsive.sm} {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 0.5rem;
-        row-gap: 2rem;
-    }
-`
-
-const Line = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &::after {
-        content: "";
-        width: 75%;
-        height: 1px;
-        background-color: rgba(0, 0, 0, 0.25);
-    }
-    &:last-of-type::after {
-        width: 100%;
-    }
-    ${responsive.lg} {
-        &::after {
-            width: 65%;
-        }
-    }
-`
-const Heading = styled.h2`
-    width: 25%;
-    font-size: 1.6rem;
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.25);
-    .newline {
-        display: none;
-    }
-    ${responsive.lg} {
-        width: 35%;
-    }
-    ${responsive.sm} {
-        font-size: 1.4rem;
-        .newline {
-            display: block;
-        }
-    }
-`
-
-const ItemMore = styled.p`
-    color: ${(props) => props.theme.colors.highlight};
-    text-align: center;
-    margin-top: 6rem;
-    a:hover {
-        text-decoration: underline;
-    }
-    ${responsive.sm} {
-        margin-top: 4rem;
     }
 `
 

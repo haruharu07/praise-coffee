@@ -63,6 +63,7 @@ module.exports = {
             resolve: `gatsby-source-instagram`,
             options: {
             username: `18598815726`,
+            maxPosts: 8,
             },
         },
     ],

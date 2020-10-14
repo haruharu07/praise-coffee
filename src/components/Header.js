@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 import responsive from '@styles/responsive'
 import navigationStyle from '@styles/navigation'
 
-import Container from '@components/Container'
 import NavigationHeader from '@components/Navigation/Navigation.Header'
 
 const Header = ({location}) => {
