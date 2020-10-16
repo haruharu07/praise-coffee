@@ -43,6 +43,8 @@ const ItemGrid = styled.div`
     ${responsive.lg} {
         grid-template-columns: 1fr 1fr 1fr;
         row-gap: 2.5rem;
+    }
+    ${responsive.md} {
         .item-link {
             &:hover .item-headline {
                 color: ${props => props.theme.colors.base};
