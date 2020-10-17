@@ -82,6 +82,9 @@ const Info = styled.div`
     min-height: 18rem;
     padding-bottom: 5rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    p {
+        white-space: pre-wrap;
+    }
     ${responsive.lg} {
         min-height: 16rem;
         padding-bottom: 5rem;

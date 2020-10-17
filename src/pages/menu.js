@@ -124,7 +124,11 @@ const ItemCase = styled.p``
 
 const ItemPrice = styled.p``
 
-const ItemDesc = styled.div``
+const ItemDesc = styled.div`
+    p {
+        white-space: pre-wrap;
+    }
+`
 
 export const pageQuery = graphql`
     query {

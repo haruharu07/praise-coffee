@@ -85,6 +85,7 @@ const MenuDesc = styled.div`
     font-size: 2.4rem;
     p {
         margin-bottom: 1em;
+        white-space: pre-wrap;
         &:last-child {
             margin-bottom: 0;
         }

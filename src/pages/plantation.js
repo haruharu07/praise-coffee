@@ -127,6 +127,9 @@ const ItemTitle = styled.h2`
 
 const ItemText = styled.div`
     margin-bottom: 1rem;
+    p {
+        white-space: pre-wrap;
+    }
 `
 
 const ItemAccent = styled.p`
