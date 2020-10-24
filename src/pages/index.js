@@ -11,10 +11,9 @@ import About from '@components/Home/About'
 import Work from '@components/Home/Work'
 import Gallery from '@components/Home/Gallery'
 
-const IndexPage = ({ location, data, siteUrl }) => {
+const IndexPage = ({ location, data }) => {
 
     const hero = data.contentfulMainVisual
-    const image = `${siteUrl}${hero.home.fluid.src}`;
     const posts = data.allContentfulBeans.edges
     const insta = data.allInstaNode.edges
 
@@ -22,7 +21,6 @@ const IndexPage = ({ location, data, siteUrl }) => {
         <Layout location={location}>
             <SEO
                 title="美味しいコーヒーと共に"
-                image={image}
             />
             <Hero hero={hero} />
             <Sustainability />

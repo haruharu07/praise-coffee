@@ -7,8 +7,6 @@ import ogp_image from '@images/default-ogp.png'
 
 function SEO({ description, lang, meta, keywords, title, image }) {
 
-
-
     return (
         <StaticQuery
         query={detailsQuery}

@@ -3,7 +3,7 @@ require("dotenv").config()
 module.exports = {
     siteMetadata: {
         title: `Praise Coffee`,
-        description: `こんにちは。Praise Coffeeです。`,
+        description: `はじめまして、プレイズコーヒーです。変化がめまぐるしく多様化する時代の中でも、美味しいコーヒーを飲むときには、自由と幸せをココロで感じてもらいたいと、わたしたちは考えています。`,
         author: `Praise Coffee`,
         siteUrl:`https://praise-coffee-dev.netlify.app`,
     },

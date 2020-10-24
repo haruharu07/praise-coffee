@@ -24,7 +24,10 @@ const Contact = ({ location }) => {
 
     return (
         <Layout location={location}>
-        <SEO title="お問い合わせ" />
+        <SEO
+            title="お問い合わせ"
+            description="『Praise Coffee』へのお問い合わせは、下記フォームからご連絡ください。電話番号や住所、営業時間など、お店の情報については「お店について」のページに記載しております。"
+        />
             <Section>
                 <Container>
                     <Headings.h1>お問い合わせ</Headings.h1>
