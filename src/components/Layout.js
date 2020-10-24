@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { ThemeProvider } from "styled-components"
-import Helmet from "react-helmet"
 
 import GlobalStyle from '@styles/global'
 import theme from '@styles/theme'
@@ -9,8 +8,6 @@ import responsive from '@styles/responsive'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import Contact from '@components/ContactBtn'
-
-// import {css} from '@styles/fonts.css'
 
 
 const Layout = props => {
@@ -40,9 +37,6 @@ const Layout = props => {
         <Header location={location} />
         {content}
         {contact}
-        {/* <Helmet>
-                <script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?5f645d9367344c5eb76b6c67ac1e02e5&fadein=1500" charset="utf-8"></script>
-        </Helmet> */}
         <Footer />
         </>
         </ThemeProvider>

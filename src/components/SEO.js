@@ -3,13 +3,19 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
+import ogp_image from '@images/default-ogp.png'
+
 function SEO({ description, lang, meta, keywords, title, image }) {
+
+
+
     return (
         <StaticQuery
         query={detailsQuery}
         render={data => {
             const metaDescription =
             description || data.site.siteMetadata.description
+            const defaultImage = `${data.site.siteMetadata.siteUrl}${ogp_image}`;
             return (
             <Helmet
                 htmlAttributes={{
@@ -32,7 +38,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 },
                 {
                     property: `og:image`,
-                    content: image,
+                    content: image || defaultImage,
                 },
                 {
                     property: `og:type`,
@@ -105,6 +111,7 @@ const detailsQuery = graphql`
                 title
                 description
                 author
+                siteUrl
             }
         }
     }

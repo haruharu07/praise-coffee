@@ -4,7 +4,8 @@ module.exports = {
     siteMetadata: {
         title: `Praise Coffee`,
         description: `こんにちは。Praise Coffeeです。`,
-        author: `はる`,
+        author: `Praise Coffee`,
+        siteUrl:`https://praise-coffee-dev.netlify.app`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
