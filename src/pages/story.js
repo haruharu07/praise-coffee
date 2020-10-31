@@ -46,7 +46,7 @@ const Story = ({ data, location }) => {
                                         <ItemText
                                             dangerouslySetInnerHTML={{__html:node.text.childMarkdownRemark.html}}
                                         />
-                                        <ItemAccent>{node.accent}</ItemAccent>
+                                        <ItemAccent>「{node.accent}」</ItemAccent>
                                     </TextBox>
                                 </Block>
                             )

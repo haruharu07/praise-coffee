@@ -22,7 +22,7 @@ const Hero = ({ hero }) => {
             <HeroTextBlock>
                 <HeroTextWrapper>
                     <HeroLogo>
-                        <img src={SiteLogo} alt="Praise Coffee"/>
+                        <img src={SiteLogo} alt="Praise Coffee - Online Shop"/>
                     </HeroLogo>
                     <HeroText>
                         美味しいコーヒーと共に<br />

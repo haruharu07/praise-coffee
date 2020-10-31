@@ -1,12 +1,37 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Slider from 'react-slick'
+
 import responsive from '@styles/responsive'
+import customSlick from '@styles/custom-slick'
 
 import PostCard from '@components/PostCard'
 import Container from '@components/Container'
 
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 const FavoritePage = ({ items }) => {
+
+    const settings = {
+        responsive: [
+            {
+                breakpoint: 9999,
+                settings: 'unslick',
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    settings: 'slick',
+                    dots: true,
+                    arrows: false,
+                    slidesToScroll: 1,
+                    slidesToShow: 1,
+                },
+            },
+        ]
+    }
 
     return (
         <Section>
@@ -14,13 +39,13 @@ const FavoritePage = ({ items }) => {
                 <Line>
                     <Heading>Praise Coffee<br class="newline" />のお気に入り</Heading>
                 </Line>
-                <ItemGrid>
+                <Slider {...settings} className="item-grid">
                     {items.map(({ node }) => {
                         return (
                             <PostCard node={node} />
                         )
                     })}
-                </ItemGrid>
+                </Slider>
                 <Line></Line>
                 <ItemMore className="item-more">
                     <Link to="/beans">
@@ -34,39 +59,33 @@ const FavoritePage = ({ items }) => {
 
 export default FavoritePage
 
-const Section = styled.section``
-
-const ItemGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2rem;
-    padding: 4rem 0 6rem;
-    .item-link {
-        &:hover {
-        opacity: 1;
-        }
-        &:hover .item-headline {
-            transition: .4s;
-            color: ${(props) => props.theme.colors.highlight};
-        }
-    }
-    ${responsive.lg} {
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 2.5rem;
-        padding: 3rem 0 5rem;
-    }
-    ${responsive.md} {
+const Section = styled.section`
+    .item-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        column-gap: 2.5rem;
+        row-gap: 3rem;
+        margin: 4rem 0 6rem;
         .item-link {
             &:hover .item-headline {
-                color: ${props => props.theme.colors.base};
+                transition: .4s;
+                color: ${(props) => props.theme.colors.highlight};
             }
         }
+        ${responsive.md} {
+            grid-template-columns: 1fr 1fr;
+            .item-link {
+                &:hover .item-headline {
+                    color: ${props => props.theme.colors.base};
+                }
+            }
+        }
+        ${responsive.sm} {
+            display: block;
+            margin: 3rem 0 7rem;
+        }
     }
-    ${responsive.sm} {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 0.5rem;
-        row-gap: 2rem;
-    }
+    ${customSlick}
 `
 
 const Line = styled.div`

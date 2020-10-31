@@ -20,7 +20,7 @@ const IndexPage = ({ location, data }) => {
     return (
         <Layout location={location}>
             <SEO
-                title="美味しいコーヒーと共に"
+                title="美味しいコーヒーと共に、人生に豊かな時間を"
             />
             <Hero hero={hero} />
             <Sustainability />
@@ -38,6 +38,7 @@ export default IndexPage
 export const pageQuery = graphql`
     query {
         allContentfulBeans (
+            sort: { fields: createdAt, order: ASC }
             filter: { favorite: {eq: true} }
             limit: 4
         ) {

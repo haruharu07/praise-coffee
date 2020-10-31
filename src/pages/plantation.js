@@ -44,7 +44,7 @@ const Plantation = ({ data, location }) => {
                                         <ItemText
                                             dangerouslySetInnerHTML={{__html:node.text.childMarkdownRemark.html}}
                                         />
-                                        <ItemAccent>{node.accent}</ItemAccent>
+                                        <ItemAccent>「{node.accent}」</ItemAccent>
                                     </TextBox>
                                 </Block>
                             )
@@ -81,7 +81,7 @@ const Block = styled.div`
     &:not(:last-child) {
         margin-bottom: 7rem;
     }
-    &:nth-child(even) .story-image {
+    &:nth-child(even) .item-image {
         grid-column: 2 / 3;
         grid-row: 1;
     }

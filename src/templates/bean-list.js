@@ -65,10 +65,12 @@ const Section = styled.section`
 
 const ItemGrid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 2rem;
-    row-gap: 3.8rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 3rem;
+    row-gap: 3rem;
     .item-link {
+        padding: 2rem 2rem 2.5rem;
+        background-color: #fff;
         &:hover {
         opacity: 1;
         }
@@ -78,10 +80,13 @@ const ItemGrid = styled.div`
         }
     }
     ${responsive.lg} {
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 2.5rem;
+        column-gap: 2rem;
+        row-gap: 2rem;
     }
     ${responsive.md} {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2.5rem;
+        row-gap: 2.5rem;
         .item-link {
             &:hover .item-headline {
                 color: ${props => props.theme.colors.base};
@@ -89,8 +94,7 @@ const ItemGrid = styled.div`
         }
     }
     ${responsive.sm} {
-        grid-template-columns: 1fr 1fr;
-        column-gap: 0.5rem;
+        grid-template-columns: 1fr;
         row-gap: 2rem;
     }
 `

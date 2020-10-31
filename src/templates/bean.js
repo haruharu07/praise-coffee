@@ -76,7 +76,7 @@ const MenuHead = styled.div`
     ${responsive.lg} {
         margin-bottom: 2rem;
     }
-    ${responsive.sm} {
+    @media screen and (max-width: 700px) {
         display: block;
     }
 `
@@ -103,9 +103,6 @@ const FeaturedImage = styled.div`
     height: auto;
     & > div {
     height: 100%;
-    }
-    ${responsive.sm} {
-        margin: 0 4rem;
     }
 `
 
@@ -145,6 +142,7 @@ const Btn = styled.div`
 export const pageQuery = graphql`
     query blogPost ($slug: String!) {
         allContentfulBeans (
+        sort: { fields: createdAt, order: ASC }
         filter: { favorite: {eq: true} }
         limit: 4
     ) {

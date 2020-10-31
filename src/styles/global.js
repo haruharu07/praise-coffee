@@ -28,7 +28,7 @@ const globalStyle = createGlobalStyle`
         font-size : 62.5%;
     }
     body {
-        font-family: 'Noto Sans JP', '秀英丸ゴシック L', 'Shuei MaruGo L', 'M PLUS Rounded 1c', -apple-system, BlinkMacSystemFont,'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial,'Helvetica Neue','メイリオ', 'Meiryo',sans-serif;
+        font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont,'Yu Gothic', YuGothic, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', Arial,'Helvetica Neue','メイリオ', 'Meiryo',sans-serif;
         font-size: 1.6rem;
         line-height: 1.75;
         background-color: ${props => props.theme.colors.background};

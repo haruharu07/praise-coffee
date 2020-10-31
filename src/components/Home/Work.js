@@ -6,7 +6,6 @@ import GatsbyImage from 'gatsby-image'
 
 import Container from '@components/Container'
 import Headings from '@components/Headings'
-// import Image from '@components/Image'
 
 const Work = ({ hero }) => {
 
@@ -14,8 +13,8 @@ const Work = ({ hero }) => {
     const thumbnail02 = hero.menu.fluid
 
     const block = [
-    { filename: thumbnail01, alt: "Praise Coffee", text: "コーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売していますコーヒー豆を販売しています", url: "/beans", page: "コーヒー豆をみる" },
-    { filename: thumbnail02, alt: "Praise Coffee", text: "カフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっていますカフェをやっています", url: "/menu", page: "カフェのメニューをみる" }
+    { filename: thumbnail01, alt: "コーヒー豆の販売", title: "コーヒー豆の販売", text: "コーヒーはフルーツの種です。フルーツでも様々な味があるように、コーヒーも個性豊かで産地農園や精製のプロセスによっても様々な味わいがあります。\nプレイズコーヒーでは素材の味がわかる焙煎度合いでコーヒーを焙煎しています。", url: "/beans", page: "コーヒー豆をみる" },
+    { filename: thumbnail02, alt: "カフェの運営", title: "カフェの運営", text: "プレイズコーヒーでは、高品質なスペシャルティーコーヒーの豆を使用した様々なメニューをご用意しています。\nフレッシュで果実のような味やチョコレートのように甘いコーヒー、お花のような華やかなコーヒー、ミルクに合うコーヒーなど、個性豊かなコーヒーの味をお楽しみください。", url: "/menu", page: "カフェのメニューをみる" }
 ]
 
     return (
@@ -35,6 +34,7 @@ const Work = ({ hero }) => {
                             </ItemImage>
                             <TextBox className="item-textBox">
                                 <Link to={post.url}>
+                                    <ItemTitle>{post.title}</ItemTitle>
                                     <ItemText>{post.text}</ItemText>
                                     <ItemMore className="item-more">
                                         {post.page}<svg width="35" height="7" viewBox="0 0 35 7" version="1.1"><g fill="none"><g><path d="M 3.5 0L 6.53109 5.25L 0.468911 5.25L 3.5 0Z" transform="matrix(0 1 -1 0 35 0)" fill="#212a2f"></path><line y1="-0.5" x2="30" y2="-0.5" transform="translate(0 4)" stroke="#212a2f"></line></g></g></svg>
@@ -104,6 +104,9 @@ const ItemImage = styled.div`
     a:hover {
         opacity: .9;
     }
+    ${responsive.md} {
+        margin-bottom: 1rem;
+    }
     ${responsive.sm} {
         height: 200px;
     }
@@ -111,7 +114,6 @@ const ItemImage = styled.div`
 
 const TextBox = styled.div`
     grid-column: 5 / 8;
-    padding-top: 1.2rem;
     a {
         display: block;
     }
@@ -141,8 +143,21 @@ const TextBox = styled.div`
     }
 `
 
+const ItemTitle = styled.h3`
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    ${responsive.md} {
+        margin-bottom: 0.6rem;
+    }
+    ${responsive.sm} {
+        font-size: 2rem;
+    }
+`
+
 const ItemText = styled.p`
     margin-bottom: 2rem;
+    white-space: pre-wrap;
     ${responsive.lg} {
         margin-bottom: 1rem;
     }

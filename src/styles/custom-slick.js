@@ -5,8 +5,32 @@ const customSlick = css`
     .card-link:hover, .card-link:focus {
         outline: none;
     }
-    /*react-slick*/
-    .slick-arrow {
+    /*Favorit*/
+    .item-grid .slick-dots {
+        bottom: -33px;
+    }
+    .item-grid .slick-dots li button::before {
+        content: "";
+        font-size: 0px;
+        line-height: normal;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        width: 10px;
+        height: 10px;
+        background: #212a2f;
+        border-radius: 50%;
+        opacity: 1;
+    }
+    .item-grid .slick-dots li.slick-active button::before {
+        opacity: 1;
+        background-color: transparent;
+        box-shadow: 0 0 0 2px #212a2f;
+    }
+
+    /*Instagram*/
+    .insta-gallery .slick-arrow {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -21,25 +45,25 @@ const customSlick = css`
             opacity: .9;
         }
     }
-    .slick-next {
+    .insta-gallery .slick-next {
         left: calc(50% + 49.8rem);
     }
-    .slick-prev {
+    .insta-gallery .slick-prev {
         left: calc(50% + 41.6rem);
     }
     @media screen and (max-width: ${props => theme.sizes.maxWidth}) {
-        .slick-arrow {
+        .insta-gallery .slick-arrow {
             top: 123%;
         }
-        .slick-next {
+        .insta-gallery .slick-next {
             left: calc(50% + 4.1rem);
         }
-        .slick-prev {
+        .insta-gallery .slick-prev {
             left: calc(50% + -4.1rem);
         }
     }
     @media screen and (max-width: 920px) {
-        .slick-arrow {
+        .insta-gallery .slick-arrow {
             display: none!important;
         }
     }

@@ -3,7 +3,7 @@ require("dotenv").config()
 module.exports = {
     siteMetadata: {
         title: `Praise Coffee`,
-        description: `はじめまして、プレイズコーヒーです。変化がめまぐるしく多様化する時代の中でも、美味しいコーヒーを飲むときには、自由と幸せをココロで感じてもらいたいと、わたしたちは考えています。`,
+        description: `こんにちは、プレイズコーヒーです。変化がめまぐるしく多様化する時代の中でも、美味しいコーヒーを飲むときには、自由と幸せをココロで感じてもらいたいと、わたしたちは考えています。`,
         author: `Praise Coffee`,
         siteUrl:`https://praise-coffee-dev.netlify.app`,
     },
@@ -34,9 +34,6 @@ module.exports = {
         },
         {
             resolve: `gatsby-transformer-remark`,
-            options: {
-                plugins: [],
-            },
         },
         {
             resolve: `gatsby-plugin-alias-imports`,
@@ -65,9 +62,15 @@ module.exports = {
         {
             resolve: `gatsby-source-instagram`,
             options: {
-            username: `18598815726`,
+            username: `8499497966`,
             maxPosts: 8,
             },
         },
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            option: {
+                trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+            }
+        }
     ],
 }

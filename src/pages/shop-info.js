@@ -45,7 +45,9 @@ const ShopInfo = ({ data, location }) => {
                             </Info>
                             <Info>
                                 <InfoTitle>電話番号</InfoTitle>
-                                <InfoText>{post.number}</InfoText>
+                                <InfoText>
+                                    <a href="tel:098-943-8705">{post.number}</a>
+                                </InfoText>
                             </Info>
                     </InfoWrapper>
                 </Container>
@@ -94,11 +96,29 @@ const Info = styled.div`
         width: 70%;
     }
     ${responsive.sm} {
+        width: 92%;
+        border-bottom: none;
         min-height: 14rem;
         padding-bottom: 4rem;
         margin-bottom: 3.2rem;
+        position: relative;
+        &::after {
+            display: block;
+            content: "";
+            width: 20px;
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.25);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
         &:first-child {
             padding-top: 1rem;
+        }
+        &:last-child {
+            &::after {
+                display: none;
+            }
         }
         p {
             font-size: 1.6rem;
@@ -138,7 +158,7 @@ const Btn = styled.div`
     ${responsive.sm} {
         margin-top: 1rem;
         a {
-            width: 100%;
+            width: 60%;
             font-size: 1.4rem;
         }
     }
