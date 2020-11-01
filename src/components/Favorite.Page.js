@@ -71,6 +71,9 @@ const Section = styled.section`
                 transition: .4s;
                 color: ${(props) => props.theme.colors.highlight};
             }
+            .item-btn {
+                display: none;
+            }
         }
         ${responsive.md} {
             grid-template-columns: 1fr 1fr;

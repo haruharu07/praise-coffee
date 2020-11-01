@@ -71,9 +71,6 @@ const ItemGrid = styled.div`
     .item-link {
         padding: 2rem 2rem 2.5rem;
         background-color: #fff;
-        &:hover {
-        opacity: 1;
-        }
         &:hover .item-headline {
             transition: .4s;
             color: ${(props) => props.theme.colors.highlight};
