@@ -106,7 +106,6 @@ const MobileNav = styled.nav`
 const MobileNavList = styled.ul`
     width: 28vw;
     height: 100%;
-    overflow-y: scroll;
     margin: 0 12rem 0 auto;
     .active {
         color: ${props => props.theme.colors.base};

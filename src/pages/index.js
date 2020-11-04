@@ -54,7 +54,7 @@ export const pageQuery = graphql`
                     }
                 }
             }
-            allInstaNode (limit: 8, sort: {order: DESC, fields: localFile___atime}) {
+            allInstaNode (limit: 8, sort: {fields: timestamp, order: DESC}) {
                 edges {
                     node {
                         id
