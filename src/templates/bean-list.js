@@ -71,15 +71,15 @@ const Section = styled.section`
 const ItemGrid = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 3rem;
-    row-gap: 3rem;
+    column-gap: 4rem;
+    row-gap: 4rem;
     .item-link {
         display: block;
         background-color: #fff;
-        box-shadow: rgba(0,0,0,0.05) 0px 15px 30px -5px, rgba(0,0,0,0.07) 0px 9px 18px -9px;
+        box-shadow: 0px 15px 30px rgba(0,0,0,0.02);
         transition: all .5s;
         &:hover {
-            box-shadow: rgba(0,0,0,0.08) 0px 30px 60px -10px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+            box-shadow: 0px 30px 60px rgba(0,0,0,0.05);
             transform: translateY(-1px);
             transition: all .5s;
         }
@@ -90,7 +90,7 @@ const ItemGrid = styled.div`
     }
     ${responsive.lg} {
         column-gap: 2rem;
-        row-gap: 2rem;
+        row-gap: 3rem;
     }
     ${responsive.md} {
         grid-template-columns: 1fr 1fr;
@@ -104,7 +104,7 @@ const ItemGrid = styled.div`
     }
     ${responsive.sm} {
         grid-template-columns: 1fr;
-        row-gap: 2rem;
+        row-gap: 3rem;
     }
 `
 

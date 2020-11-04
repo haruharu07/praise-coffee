@@ -69,9 +69,9 @@ const Section = styled.section`
         .item-link {
             display: block;
             background-color: #fff;
-            box-shadow: 0px 15px 30px rgba(0,0,0,0.05);
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.02);
             &:hover {
-                box-shadow: 0px 30px 60px rgba(0,0,0,0.08);
+                box-shadow: 0px 30px 60px rgba(0,0,0,0.05);
                 transform: translateY(-1px);
                 transition: all .5s;
             }
