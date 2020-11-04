@@ -35,7 +35,6 @@ const globalStyle = createGlobalStyle`
         color: ${props => props.theme.colors.base};
         position: relative;
         overflow: scroll;
-        /* visibility: hidden; */
     }
     body.typesquare_option {
         visibility: visible;

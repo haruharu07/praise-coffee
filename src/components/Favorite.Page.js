@@ -68,7 +68,7 @@ const Section = styled.section`
         margin: 4rem 0 6rem;
         .item-link {
             display: block;
-            background-color: #fff;
+            background-color: #fdfdfd;
             box-shadow: 0px 15px 30px rgba(0,0,0,0.02);
             &:hover {
                 box-shadow: 0px 30px 60px rgba(0,0,0,0.05);
@@ -79,8 +79,8 @@ const Section = styled.section`
                 transition: .4s;
                 color: ${(props) => props.theme.colors.highlight};
             }
-            .item-btn {
-                display: none;
+            .item-headline {
+                padding: 1rem 1rem 1.4rem;
             }
         }
         ${responsive.md} {

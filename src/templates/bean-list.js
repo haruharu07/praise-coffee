@@ -75,7 +75,7 @@ const ItemGrid = styled.div`
     row-gap: 4rem;
     .item-link {
         display: block;
-        background-color: #fff;
+        background-color: #fdfdfd;
         box-shadow: 0px 15px 30px rgba(0,0,0,0.02);
         transition: all .5s;
         &:hover {
