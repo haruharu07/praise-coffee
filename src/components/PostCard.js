@@ -21,9 +21,6 @@ const PostCard = ({node}) => {
             <ItemText className="item-headline">
                 {title}
             </ItemText>
-            <ItemBtn className="item-btn">
-                Quick View
-            </ItemBtn>
         </Link>
     )
 }
@@ -33,7 +30,6 @@ export default PostCard
 
 const ItemImage = styled.div`
     height: auto;
-    margin-bottom: 1.2rem;
     transition: all .5s;
 `
 
@@ -42,21 +38,5 @@ const ItemText = styled.h3`
     font-weight: 400;
     line-height: 1.3;
     text-align: center;
-`
-const ItemBtn = styled.p`
-    width: 100%;
-    height: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #555;
-    color: #f6f6f6;
-    margin: 15px 0 0;
-    transition: all .5s;
-    &:hover {
-        opacity: .9;
-    }
-    ${responsive.sm} {
-        margin: 12px 0 0;
-    }
+    padding: 1.2rem 1.2rem 1.7rem;
 `

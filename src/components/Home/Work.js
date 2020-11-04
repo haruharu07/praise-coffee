@@ -23,25 +23,21 @@ const Work = ({ hero }) => {
                 <Headings.h2>Praise Coffeeの取り組み</Headings.h2>
                 <BlockWrapper>
                     {block.map(post => (
-                        <Block>
+                        <Link to={post.url} className="item-link">
                             <ItemImage className="item-image">
-                                <Link to={post.url}>
-                                    <GatsbyImage
-                                        fluid={post.filename}
-                                        alt={post.alt}
-                                    />
-                                </Link>
+                                <GatsbyImage
+                                    fluid={post.filename}
+                                    alt={post.alt}
+                                />
                             </ItemImage>
                             <TextBox className="item-textBox">
-                                <Link to={post.url}>
-                                    <ItemTitle>{post.title}</ItemTitle>
-                                    <ItemText>{post.text}</ItemText>
-                                    <ItemMore className="item-more">
-                                        {post.page}<svg width="35" height="7" viewBox="0 0 35 7" version="1.1"><g fill="none"><g><path d="M 3.5 0L 6.53109 5.25L 0.468911 5.25L 3.5 0Z" transform="matrix(0 1 -1 0 35 0)" fill="#212a2f"></path><line y1="-0.5" x2="30" y2="-0.5" transform="translate(0 4)" stroke="#212a2f"></line></g></g></svg>
-                                    </ItemMore>
-                                </Link>
+                                <ItemTitle>{post.title}</ItemTitle>
+                                <ItemText>{post.text}</ItemText>
+                                <ItemMore className="item-more">
+                                    {post.page}<svg width="35" height="7" viewBox="0 0 35 7" version="1.1"><g fill="none"><g><path d="M 3.5 0L 6.53109 5.25L 0.468911 5.25L 3.5 0Z" transform="matrix(0 1 -1 0 35 0)" fill="#212a2f"></path><line y1="-0.5" x2="30" y2="-0.5" transform="translate(0 4)" stroke="#212a2f"></line></g></g></svg>
+                                </ItemMore>
                             </TextBox>
-                        </Block>
+                        </Link>
                     ))}
                 </BlockWrapper>
             </Container>
@@ -61,31 +57,54 @@ const Section = styled.section`
     }
 `
 
-const BlockWrapper = styled.div``
-
-const Block = styled.div`
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    column-gap: 3rem;
-    &:not(:last-child) {
-        margin-bottom: 7rem;
-    }
-    &:nth-child(even) .item-image {
-        grid-column: 4 / span 7;
-        grid-row: 1;
-    }
-    &:nth-child(even) .item-textBox {
-        grid-column: 1 / 4;
-    }
-    ${responsive.lg} {
-        display: block;
+const BlockWrapper = styled.div`
+    .item-link {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 3rem;
         &:not(:last-child) {
-            margin-bottom: 4rem;
+            margin-bottom: 7rem;
         }
-    }
-    ${responsive.sm} {
-        &:not(:last-child) {
-            margin-bottom: 3.5rem;
+        &:nth-child(even) .item-image {
+            grid-column: 4 / span 7;
+            grid-row: 1;
+        }
+        &:nth-child(even) .item-textBox {
+            grid-column: 1 / 4;
+        }
+        &:hover {
+            color: inherit;
+        }
+        &:hover .item-image {
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 50px 80px -20px, rgba(0, 0, 0, 0.15) 0px 30px 50px -30px;
+            transform: translateY(-1px);
+            transition: all .5s;
+        }
+        &:hover .item-more {
+            color: ${props => props.theme.colors.highlight};
+        }
+        &:hover svg {
+            transform: translateX(2px);
+            transition: all .5s;
+        }
+        &:hover svg path {
+            fill: ${props => props.theme.colors.highlight};
+            transition: all .5s;
+        }
+        &:hover svg line {
+            stroke: ${props => props.theme.colors.highlight};
+            transition: all .5s;
+        }
+        ${responsive.lg} {
+            display: block;
+            &:not(:last-child) {
+                margin-bottom: 4rem;
+            }
+        }
+        ${responsive.sm} {
+            &:not(:last-child) {
+                margin-bottom: 3.5rem;
+            }
         }
     }
 `
@@ -94,15 +113,10 @@ const ItemImage = styled.div`
     height: 300px;
     background-color: #F7F0EA;
     grid-column: 1 / span 4;
-    a {
-        display: block;
+    box-shadow: rgba(0,0,0,0.08) 0px 30px 60px -10px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+    transition: all .5s;
+    & > div {
         height: 100%;
-        & > div {
-            height: 100%;
-        }
-    }
-    a:hover {
-        opacity: .9;
     }
     ${responsive.md} {
         margin-bottom: 1rem;
@@ -114,31 +128,10 @@ const ItemImage = styled.div`
 
 const TextBox = styled.div`
     grid-column: 5 / 8;
-    a {
-        display: block;
-    }
-    a svg {
+    svg {
         transition: all .5s;
     }
-    a:hover {
-        color: inherit;
-    }
-    a:hover .item-more {
-        color: ${props => props.theme.colors.highlight};
-    }
-    a .item-more, a svg path, a svg line {
-        transition: all .5s;
-    }
-    a:hover svg {
-        transform: translateX(2px);
-        transition: all .5s;
-    }
-    a:hover svg path {
-        fill: ${props => props.theme.colors.highlight};
-        transition: all .5s;
-    }
-    a:hover svg line {
-        stroke: ${props => props.theme.colors.highlight};
+    .item-more, svg path, svg line {
         transition: all .5s;
     }
 `

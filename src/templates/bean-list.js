@@ -41,6 +41,11 @@ const BeanList = ({data, location}) => {
                             )
                         })}
                     </ItemGrid>
+                    <ItemMore>
+                        <a href="https://praisecoffee.stores.jp/" target="_blank" rel="noopener noreferrer">
+                            オンラインショップはこちら
+                        </a>
+                    </ItemMore>
                 </Container>
             </Section>
             <About />
@@ -69,10 +74,17 @@ const ItemGrid = styled.div`
     column-gap: 3rem;
     row-gap: 3rem;
     .item-link {
-        padding: 2rem 2rem 2.5rem;
+        display: block;
         background-color: #fff;
+        box-shadow: rgba(0,0,0,0.05) 0px 15px 30px -5px, rgba(0,0,0,0.07) 0px 9px 18px -9px;
+        transition: all .5s;
+        &:hover {
+            box-shadow: rgba(0,0,0,0.08) 0px 30px 60px -10px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
+            transform: translateY(-1px);
+            transition: all .5s;
+        }
         &:hover .item-headline {
-            transition: .4s;
+            transition: .5s;
             color: ${(props) => props.theme.colors.highlight};
         }
     }
@@ -93,6 +105,18 @@ const ItemGrid = styled.div`
     ${responsive.sm} {
         grid-template-columns: 1fr;
         row-gap: 2rem;
+    }
+`
+
+const ItemMore = styled.p`
+    color: ${(props) => props.theme.colors.highlight};
+    text-align: center;
+    margin-top: 6rem;
+    a:hover {
+        text-decoration: underline;
+    }
+    ${responsive.sm} {
+        margin-top: 4rem;
     }
 `
 

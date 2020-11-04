@@ -67,6 +67,14 @@ const Section = styled.section`
         row-gap: 3rem;
         margin: 4rem 0 6rem;
         .item-link {
+            display: block;
+            background-color: #fff;
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.05);
+            &:hover {
+                box-shadow: 0px 30px 60px rgba(0,0,0,0.08);
+                transform: translateY(-1px);
+                transition: all .5s;
+            }
             &:hover .item-headline {
                 transition: .4s;
                 color: ${(props) => props.theme.colors.highlight};
