@@ -3,8 +3,6 @@ import { Link } from 'gatsby'
 import GatsbyImage from 'gatsby-image'
 import styled from 'styled-components'
 
-import responsive from '@styles/responsive'
-
 const PostCard = ({node}) => {
     const title = node.title
     const featuredImage = node.featuredImage.fluid
