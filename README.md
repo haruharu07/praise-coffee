@@ -6,8 +6,6 @@
 
 ## Technology used 🚀
 
----
-
 [Gatsby](https://www.gatsbyjs.com/) - A React-based open source framework
 
 [Contentful](https://www.contentful.com/) - A API-based Headless CMS
