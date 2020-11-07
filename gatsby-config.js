@@ -5,9 +5,16 @@ module.exports = {
         title: `Praise Coffee`,
         description: `こんにちは、プレイズコーヒーです。変化がめまぐるしく多様化する時代の中でも、美味しいコーヒーを飲むときには、自由と幸せをココロで感じてもらいたいと、わたしたちは考えています。`,
         author: `Praise Coffee`,
-        siteUrl:`https://praise-coffee-dev.netlify.app`,
+        siteUrl:`https://praise-coffee.com`,
     },
     plugins: [
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+                head: true,
+            },
+        },
         `gatsby-plugin-react-helmet`,
         {
             resolve: `gatsby-source-filesystem`,
@@ -66,12 +73,5 @@ module.exports = {
             maxPosts: 8,
             },
         },
-        {
-            resolve: `gatsby-plugin-google-analytics`,
-            option: {
-                trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
-                head: true,
-            }
-        }
     ],
 }
