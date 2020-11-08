@@ -20,7 +20,7 @@ const IndexPage = ({ location, data }) => {
     return (
         <Layout location={location}>
             <SEO
-                title="美味しいコーヒーと共に、人生に豊かな時間を。"
+                title=""
             />
             <Hero hero={hero} />
             <Sustainability />

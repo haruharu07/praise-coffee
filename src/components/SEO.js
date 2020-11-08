@@ -11,14 +11,15 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         <StaticQuery
         query={detailsQuery}
         render={data => {
-            const metaDescription =
-            description || data.site.siteMetadata.description
-            const defaultImage = `${data.site.siteMetadata.siteUrl}${ogp_image}`;
+            const metaDescription = description || data.site.siteMetadata.description
+            const defaultImage = `${data.site.siteMetadata.siteUrl}${ogp_image}`
+            const defaultTitle = "Praise Coffee | 美味しいコーヒーと共に、人生に豊かな時間を。"
             return (
             <Helmet
                 htmlAttributes={{
                 lang,
                 }}
+                defaultTitle = {defaultTitle}
                 title={title}
                 titleTemplate={`%s | ${data.site.siteMetadata.title}`}
                 meta={[
@@ -28,7 +29,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 },
                 {
                     property: `og:title`,
-                    content: title,
+                    content: title || defaultTitle,
                 },
                 {
                     property: `og:description`,
