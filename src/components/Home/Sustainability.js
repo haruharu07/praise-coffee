@@ -13,8 +13,8 @@ const Sustainability = () => {
                 <Block>
                     <ItemImage>
                         <Image
-                            filename="img_cofee_beans_home.jpg"
-                            alt="Praise Coffee"
+                            filename="img_coffee_beans_home.jpg"
+                            alt="Coffee Beans"
                         />
                     </ItemImage>
                     <TextBox>
