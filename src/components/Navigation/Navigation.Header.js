@@ -22,56 +22,7 @@ const NavigationHeader = ({ location }) => {
         document.querySelector(".menu-button").classList.toggle("open")
         document.querySelector(".mobile-nav").classList.toggle("show")
         document.body.classList.toggle("noscroll")
-
-        if(document.body.classList.contains('noscroll')){
-            bodyScrollPrevent(true)
-        }
     }
-
-    function bodyScrollPrevent(flag, modal) {
-
-	let scrollPosition;
-	const body = document.getElementsByTagName('body')[0];
-	//iOS(iPad含む)の判定
-	const ua = window.navigator.userAgent.toLowerCase();
-	const isiOS = ua.indexOf('iphone') > -1 || ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document;
-	//スクロールバーの幅
-	const scrollBarWidth = window.innerWidth - document.body.clientWidth;
-
-	if (flag) {
-		body.style.paddingRight = scrollBarWidth + 'px';
-		//iOSの場合はposition:fixedの処理
-		if (isiOS) {
-			scrollPosition = -window.pageYOffset;
-			body.style.position = 'fixed';
-			body.style.width = '100%';
-			body.style.top = scrollPosition + 'px';
-		//それ以外はoverflow:hiddenでシンプルな処理
-		}
-	} else if (!flag) {//elseでもOK。わかりやすく!flagとしているだけ
-		//非表示にする際にモーダルがtransitionをしている場合、transitionが終わってからスタイルをリセットする
-		addEventListenerOnce(modal, 'transitionend', function () {
-			body.style.paddingRight = '';
-			if (isiOS) {
-				scrollPosition = parseInt(body.style.top.replace(/[^0-9]/g, ''));
-				body.style.position = '';
-				body.style.width = '';
-				body.style.top = '';
-				window.scrollTo(0, scrollPosition);
-			}
-		});
-	}
-
-	//transitionendイベントを一回だけ呼び出すための関数（これをやらないと二回目以降のモーダル処理に影響がある）
-	function addEventListenerOnce(node, event, callback) {
-		const handler = function (e) {
-			callback.call(this, e);
-			node.removeEventListener(event, handler);
-		};
-		node.addEventListener(event, handler);
-	}
-
-}
 
     return (
         <>
