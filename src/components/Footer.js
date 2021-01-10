@@ -49,7 +49,7 @@ const Footer = () => {
                             </IconItem>
                         </IconList>
                         <Copyright>
-                            ©︎{new Date().getFullYear()} Praise Coffee
+                            ©︎2021 Praise Coffee
                         </Copyright>
                     </OutContents>
                 </FooterInner>
