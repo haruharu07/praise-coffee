@@ -53,7 +53,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
                 },
                 {
                     name: `twitter:title`,
-                    content: title,
+                    content: title || defaultTitle,
                 },
                 {
                     name: `twitter:description`,
